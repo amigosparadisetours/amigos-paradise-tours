@@ -1,4 +1,4 @@
-# Pages CMS panel (app.pagescms.org): lets Darshi edit the main photos, reviews, traveller photos and routes from his phone.
+# Pages CMS panel (app.pagescms.org): lets Darshi edit the main photos, reviews, traveller photos, places, routes, the FAQ, the "before/arrival/during" lists and the car details from his phone.
 # Each entry edits one file in data/. The website reads those files, so the design never changes.
 media:
   input: img
@@ -183,7 +183,13 @@ content:
         label: Name of the place in English (e.g. Tea plantations)
         type: string
       - name: by
-        label: Who took the photo (a traveller's first name, e.g. Claudia). Leave empty if you took it
+        label: Who took the photo (the traveller's name, e.g. Claudia Villa). Leave empty if you took it
+        type: string
+      - name: by_from_es
+        label: Their country in Spanish (e.g. España)
+        type: string
+      - name: by_from_en
+        label: Their country in English (e.g. Spain)
         type: string
 
   - name: routes
@@ -215,3 +221,95 @@ content:
         label: "Stops in order, separated by · (e.g. Aeropuerto · Sigiriya · Kandy · Ella · Yala / Udawalawe · Mirissa). Use / for either place"
         type: string
         required: true
+
+  - name: faq
+    label: Questions (FAQ)
+    type: file
+    path: data/faq.json
+    format: json
+    list: true
+    fields:
+      - name: question_es
+        label: Question in Spanish (use tú, e.g. ¿Se deja propina?)
+        type: string
+        required: true
+      - name: question_en
+        label: Question in English
+        type: string
+      - name: answer_es
+        label: Your answer in Spanish. Leave an empty line between paragraphs
+        type: text
+        required: true
+      - name: answer_en
+        label: Your answer in English. Leave an empty line between paragraphs
+        type: text
+
+  - name: help
+    label: "Before, on arrival and during the trip"
+    type: file
+    path: data/help.json
+    format: json
+    fields:
+      - name: before
+        label: Before the trip
+        type: object
+        list: true
+        fields:
+          - name: es
+            label: In Spanish
+            type: string
+          - name: en
+            label: In English
+            type: string
+      - name: arrival
+        label: On arrival
+        type: object
+        list: true
+        fields:
+          - name: es
+            label: In Spanish
+            type: string
+          - name: en
+            label: In English
+            type: string
+      - name: during
+        label: During the trip
+        type: object
+        list: true
+        fields:
+          - name: es
+            label: In Spanish
+            type: string
+          - name: en
+            label: In English
+            type: string
+
+  - name: car
+    label: The car (details)
+    type: file
+    path: data/car.json
+    format: json
+    fields:
+      - name: specs
+        label: Car details (one line each)
+        type: object
+        list: true
+        fields:
+          - name: label_es
+            label: Name in Spanish (e.g. Pasajeros)
+            type: string
+          - name: label_en
+            label: Name in English (e.g. Passengers)
+            type: string
+          - name: value_es
+            label: Detail in Spanish (e.g. 4 - 1 delante y 3 detrás)
+            type: string
+          - name: value_en
+            label: Detail in English (e.g. 4 - 1 in the front, 3 at the back)
+            type: string
+      - name: note_es
+        label: Short sentence under the details, in Spanish
+        type: string
+      - name: note_en
+        label: Short sentence under the details, in English
+        type: string
