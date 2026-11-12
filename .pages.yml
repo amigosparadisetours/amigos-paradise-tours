@@ -313,3 +313,13 @@ content:
       - name: note_en
         label: Short sentence under the details, in English
         type: string
+
+  - name: links
+    label: Links
+    type: file
+    path: data/links.json
+    format: json
+    fields:
+      - name: google_reviews
+        label: "Link to my Google reviews (in Google Maps, open your profile, tap Share and copy the link). Leave empty to hide it"
+        type: string
