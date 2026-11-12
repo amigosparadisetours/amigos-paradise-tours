@@ -26,7 +26,7 @@ Darshi owns this repository and asks for changes from the Claude app on his phon
 6. **His English is only mentioned in the FAQ** ("My English is very basic..."), never in the hero or the car block.
 7. **No prices or amounts anywhere.** The quote, the deposit and the payment method are sent on WhatsApp, trip by trip.
 8. **Nothing that needs maintenance:** no embedded Instagram or Google feeds (link to them instead), no counters, no "years of experience", no dates that go out of date, no car model.
-9. **Nothing that looks generated or like a template:** no stock photos, no AI images, no icon sets, no emoji. Real photos only. The only icons are the WhatsApp, Instagram and Google logos on the links to those services.
+9. **Nothing that looks generated or like a template:** no stock photos, no AI images, no icon sets, no emoji. Real photos only. The one exception is the train card photo (`img/tren-nine-arches.jpg`, by llxvisuals on Unsplash, free licence): replace it with Darshi's own photo of the train when he has one. The only icons are the WhatsApp, Instagram and Google logos on the links to those services.
 
 ## Structure
 
@@ -40,12 +40,13 @@ One page, in this order (section ids in brackets): header with ES/EN switch and 
 
 ## Content Darshi edits from the panel
 
-The main photos, reviews, photos with travellers and routes are **not written in `index.html`**. They live in four data files that Darshi edits himself, for free, from the Pages CMS panel (app.pagescms.org, configured in `.pages.yml`):
+The main photos, reviews, photos with travellers, places and routes are **not written in `index.html`**. They live in five data files that Darshi edits himself, for free, from the Pages CMS panel (app.pagescms.org, configured in `.pages.yml`):
 
 - `data/reviews.json`: each review has `name`, `from_es`/`from_en`, `trip_es`/`trip_en`, `original_language`, `original` (literal text), `spanish`/`english` (translations), `photo` and `featured` (shown among the first ones; the first featured review is shown bigger).
 - `data/travellers.json`: `photo` and `description` (English).
-- `data/routes.json`: `name_es`/`name_en` (the button), `who`, `days`, `type_es`/`type_en` (a short note), `stops` (separated by "·"; "A / B" means either). A route with `who` is a real trip with those travellers; with an empty `who` it is "Ruta que te propongo / A route I suggest". The script draws every route on the map from the `PLACES` list (latitude/longitude) near the end of `index.html`: a stop missing from that list is shown in the list but not on the map, so add it there. One button per route switches the map; Claudia & Gerard's real trip, written in the HTML, is the last button.
-- `data/photos.json`: the main photos (top, About me, the three "How we'll travel" cards, the car, Claudia & Gerard's trip), each with `photo` and an English `description`. They match the `data-slot` attributes in `index.html`. A photo that differs from the one written in the HTML replaces it when the page loads.
+- `data/places.json`: the strip "Algunos lugares del camino / Some places along the way" under the routes. Each place has `photo`, `name_es` and `name_en` (the caption, also its alt text) and `by` (the traveller who took it, shown as "Foto: …"; empty if Darshi took it). The line under the title says they are real photos taken by his travellers. Only Darshi's or his travellers' own photos, never photos from the internet, and only names of places he confirms.
+- `data/routes.json`: `name_es`/`name_en` (the button), `who`, `days`, `type_es`/`type_en` (a short note), `stops` (separated by "·"; "A / B" means either). A route with `who` is a real trip with those travellers; with an empty `who` it is "Ruta que te propongo / A route I suggest". The script draws every route on the map from the `PLACES` list (latitude/longitude) near the end of `index.html`: a stop missing from that list is shown in the list but not on the map, so add it there. One button per route switches the map (no buttons when there is only one route). All routes follow the same pattern.
+- `data/photos.json`: the main photos (top, About me, the three "How we'll travel" cards, the car), each with `photo` and an English `description`. They match the `data-slot` attributes in `index.html`. A photo that differs from the one written in the HTML replaces it when the page loads.
 
 The script at the bottom of `index.html` reads these files and builds the markup (with the same classes as the rest of the page). To change any of this content, edit the JSON files, not the HTML. Keep the field names: the panel depends on them. If you add a field, add it to `.pages.yml` too.
 
@@ -70,7 +71,7 @@ When something is confirmed: write the real content in both languages, then remo
 
 ## Common tasks
 
-**Replace a photo.** The main photos can be changed by Darshi from the panel ("Main photos"). If he asks you instead: put the photo in `img/`, update both `data/photos.json` and the `src`/`data-alt-es`/`data-alt-en`/`alt` of the matching `data-slot` image in `index.html` (keep them the same), and remove its `.prov` caption if it is the final photo. Photos should be about 1,600 px on the long side at most and under about 400 KB (the "Optimize photos" GitHub Action shrinks bigger ones). The hero photo is also the image WhatsApp shows when the link is shared (`og:image`, an absolute URL): if it changes, update `og:image`, `og:image:width` and `og:image:height`. Don't delete old photos unless he asks.
+**Replace a photo.** The main photos can be changed by Darshi from the panel ("Main photos"). If he asks you instead: put the photo in `img/`, update both `data/photos.json` and the `src`/`data-alt-es`/`data-alt-en`/`alt` of the matching `data-slot` image in `index.html` (keep them the same), and remove its `.prov` caption if it is the final photo. Photos should be about 1,600 px on the long side at most and under about 400 KB (the "Optimize photos" GitHub Action shrinks bigger ones). The image WhatsApp shows when the link is shared is set apart, in `og:image` (an absolute URL, with `og:image:width` and `og:image:height`): it is the close-up `img/portada-darshi.jpg`, because a face reads better in a small preview than the full photo at the top. Don't delete old photos unless he asks.
 
 **Add a review, a photo with travellers or a route.** Darshi can do it himself from the panel. If he asks you, add an entry to the matching file in `data/`. Reviews: literal text in `original`, the translations in `spanish`/`english`, the type of trip only if the traveller said it, and a photo only with their permission. Only `featured` reviews are visible at first (keep about 4); the rest appear behind "Ver más opiniones". Routes are drawn on the map automatically from their stops (see above).
 

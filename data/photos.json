@@ -1,7 +1,7 @@
 {
   "hero": {
-    "photo": "img/portada-darshi.jpg",
-    "description": "Darshi smiling at the camera"
+    "photo": "img/darshi-retrato.jpg",
+    "description": "Darshi sitting on some steps, smiling"
   },
   "about": {
     "photo": "img/lamparas.webp",
@@ -9,30 +9,26 @@
   },
   "card_route": {
     "photo": "img/buduruwagala.jpg",
-    "description": "The Buddha figures carved into the rock at Buduruwagala"
+    "description": "Darshi and Gerard looking at the Buddha figure carved into the rock at Buduruwagala"
   },
   "card_tips": {
-    "photo": "img/recomendaciones.jpg",
-    "description": "Darshi pointing out a waterfall to a traveller"
+    "photo": "img/comida-tipica.jpg",
+    "description": "Rice and curry served on a banana leaf"
   },
   "card_train": {
-    "photo": "",
-    "description": ""
+    "photo": "img/tren-nine-arches.jpg",
+    "description": "The train to Ella crossing the Nine Arches Bridge"
   },
   "car_outside": {
-    "photo": "img/coche-darshi.jpg",
-    "description": "Darshi leaning on his black car"
+    "photo": "img/coche-arrozal.jpg",
+    "description": "Darshi leaning on his black car, next to some rice fields"
   },
   "car_inside": {
     "photo": "img/coche-interior.jpg",
     "description": "Inside the car from the back seats"
   },
-  "trip_1": {
-    "photo": "img/barca-claudia.webp",
-    "description": "Claudia and Darshi on a boat on a lake"
-  },
-  "trip_2": {
-    "photo": "img/viaje-elefante.jpg",
-    "description": "Darshi and Gerard watching an elephant by the road"
+  "car_3": {
+    "photo": "img/coche-detras.jpg",
+    "description": "The back of the car, with the words Come as a guest, leave as a friend"
   }
 }
