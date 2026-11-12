@@ -1,4 +1,4 @@
-# Pages CMS panel (app.pagescms.org): lets Darshi edit reviews, traveller photos and routes from his phone.
+# Pages CMS panel (app.pagescms.org): lets Darshi edit the main photos, reviews, traveller photos and routes from his phone.
 # Each entry edits one file in data/. The website reads those files, so the design never changes.
 media:
   input: img
@@ -7,6 +7,102 @@ media:
   rename: safe
 
 content:
+  - name: photos
+    label: Main photos
+    type: file
+    path: data/photos.json
+    format: json
+    fields:
+      - name: hero
+        label: "Photo at the top (it is also the photo WhatsApp shows when the link is shared)"
+        type: object
+        fields:
+          - name: photo
+            label: Photo
+            type: image
+          - name: description
+            label: What the photo shows, in English (e.g. Darshi with travellers in Ella)
+            type: string
+      - name: about
+        label: "About me"
+        type: object
+        fields:
+          - name: photo
+            label: Photo
+            type: image
+          - name: description
+            label: What the photo shows, in English (e.g. Darshi with travellers in Ella)
+            type: string
+      - name: card_route
+        label: "How we'll travel · 1. We plan the route together"
+        type: object
+        fields:
+          - name: photo
+            label: Photo
+            type: image
+          - name: description
+            label: What the photo shows, in English (e.g. Darshi with travellers in Ella)
+            type: string
+      - name: card_tips
+        label: "How we'll travel · 2. Recommendations along the way"
+        type: object
+        fields:
+          - name: photo
+            label: Photo
+            type: image
+          - name: description
+            label: What the photo shows, in English (e.g. Darshi with travellers in Ella)
+            type: string
+      - name: card_train
+        label: "How we'll travel · 3. The train to Ella"
+        type: object
+        fields:
+          - name: photo
+            label: Photo
+            type: image
+          - name: description
+            label: What the photo shows, in English (e.g. Darshi with travellers in Ella)
+            type: string
+      - name: car_outside
+        label: "The car · outside"
+        type: object
+        fields:
+          - name: photo
+            label: Photo
+            type: image
+          - name: description
+            label: What the photo shows, in English (e.g. Darshi with travellers in Ella)
+            type: string
+      - name: car_inside
+        label: "The car · inside"
+        type: object
+        fields:
+          - name: photo
+            label: Photo
+            type: image
+          - name: description
+            label: What the photo shows, in English (e.g. Darshi with travellers in Ella)
+            type: string
+      - name: trip_1
+        label: "Claudia & Gerard's trip · photo 1"
+        type: object
+        fields:
+          - name: photo
+            label: Photo
+            type: image
+          - name: description
+            label: What the photo shows, in English (e.g. Darshi with travellers in Ella)
+            type: string
+      - name: trip_2
+        label: "Claudia & Gerard's trip · photo 2"
+        type: object
+        fields:
+          - name: photo
+            label: Photo
+            type: image
+          - name: description
+            label: What the photo shows, in English (e.g. Darshi with travellers in Ella)
+            type: string
   - name: reviews
     label: Reviews
     type: file
@@ -85,21 +181,25 @@ content:
     format: json
     list: true
     fields:
+      - name: name_es
+        label: Short name for the button, in Spanish (e.g. Hasta Arugam Bay)
+        type: string
+      - name: name_en
+        label: Short name for the button, in English (e.g. To Arugam Bay)
+        type: string
       - name: who
-        label: Who travelled (e.g. Amaya, or A family with two children)
+        label: Who travelled (e.g. Amaya). Leave empty for a route you suggest
         type: string
-        required: true
       - name: days
-        label: Number of days
+        label: Number of days (optional)
         type: string
-        required: true
       - name: type_es
-        label: Type of trip, in Spanish (e.g. pareja, familia)
+        label: Type of trip or short note, in Spanish (e.g. pareja, familia)
         type: string
       - name: type_en
-        label: Type of trip, in English (e.g. couple, family)
+        label: Type of trip or short note, in English (e.g. couple, family)
         type: string
       - name: stops
-        label: Stops in order (e.g. Sigiriya · Kandy · Ella · Yala · Mirissa)
+        label: "Stops in order, separated by · (e.g. Aeropuerto · Sigiriya · Kandy · Ella · Yala / Udawalawe · Mirissa). Use / for either place"
         type: string
         required: true
