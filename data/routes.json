@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "name_es": "Hasta Arugam Bay",
+    "name_en": "To Arugam Bay",
+    "who": "",
+    "days": "",
+    "type_es": "Del aeropuerto de Colombo a la playa de Arugam Bay, pasando por la costa este.",
+    "type_en": "From Colombo Airport to the beach at Arugam Bay, via the east coast.",
+    "stops": "Aeropuerto · Sigiriya · Trincomalee · Kandy · Nuwara Eliya · Ella · Yala / Udawalawe · Arugam Bay"
+  },
+  {
+    "name_es": "Ciudades antiguas y el tren",
+    "name_en": "Ancient cities and the train",
+    "who": "",
+    "days": "",
+    "type_es": "Con el tren de Nuwara Eliya a Ella y final en la costa sur.",
+    "type_en": "With the train from Nuwara Eliya to Ella, ending on the south coast.",
+    "stops": "Sigiriya · Polonnaruwa · Anuradhapura · Kandy · Nuwara Eliya · Ella · Yala · Udawalawe"
+  }
+]

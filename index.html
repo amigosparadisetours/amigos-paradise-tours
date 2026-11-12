@@ -16,7 +16,7 @@
   "alternateName": "Darshi · Conductor privado en Sri Lanka",
   "description": "Darshi, conductor privado en Sri Lanka. Rutas por Sri Lanka en coche privado con aire acondicionado, preparadas con cada viajero.",
   "url": "https://amigosparadisetours.com/",
-  "image": "https://amigosparadisetours.com/img/hero-centrado.jpg",
+  "image": "https://amigosparadisetours.com/img/portada-darshi.jpg",
   "logo": "https://amigosparadisetours.com/img/logo-amigos.png",
   "telephone": "+94742958615",
   "address": { "@type": "PostalAddress", "addressCountry": "LK" },
@@ -35,9 +35,9 @@
 <meta property="og:url" content="https://amigosparadisetours.com/">
 <meta property="og:title" content="Darshi · Conductor privado en Sri Lanka">
 <meta property="og:description" content="Come as a guest, leave as amigo. Rutas por Sri Lanka en coche privado con Darshi, conductor privado.">
-<meta property="og:image" content="https://amigosparadisetours.com/img/hero-centrado.jpg">
-<meta property="og:image:width" content="740">
-<meta property="og:image:height" content="925">
+<meta property="og:image" content="https://amigosparadisetours.com/img/portada-darshi.jpg">
+<meta property="og:image:width" content="960">
+<meta property="og:image:height" content="1200">
 <meta property="og:locale" content="es_ES">
 <meta property="og:locale:alternate" content="en_GB">
 <link rel="preload" href="fonts/libre-caslon-display-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -205,9 +205,6 @@ html:not(.revisar) .voice-g:has(> .video.pend){grid-template-columns:minmax(0,1f
 .more-q[open] > summary::after{content:"\2212"}
 .more-q[open] > summary{margin-bottom:16px}
 .more-q-g,.reviews-list{display:grid;gap:16px}
-.rt-one{display:none}
-html:not(.revisar) #viaje-real:not(:has(.rcard:not(.pend))) .rt-many{display:none}
-html:not(.revisar) #viaje-real:not(:has(.rcard:not(.pend))) .rt-one{display:inline}
 .crew{display:grid;gap:12px;padding-top:8px}
 .crew-k{font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--band-gold)}
 .crew-g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
@@ -299,14 +296,15 @@ html:not(.revisar) .car-ph:has(> .slot) .ph{aspect-ratio:4/3}
 .trip-ph{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .trip-ph .ph{aspect-ratio:4/5}
 @media (max-width:960px){ .trip-g{grid-template-columns:1fr} }
-/* more routes: text-only cards, so adding one never means drawing on the map */
-.rcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px;margin-top:clamp(32px,5vw,56px)}
-.rcard{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:20px 22px;display:grid;gap:8px;align-content:start}
-.rcard.pend{border-style:dashed;border-color:var(--prov);background:transparent}
-.rcard-k{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-text)}
-.rcard h3{font-size:1.4rem}
-.rcard-s{color:var(--muted);font-size:.95rem}
-html:not(.revisar) .rcards:not(:has(> .rcard:not(.pend))){display:none}
+/* route chooser: one button per route; only the chosen route shows on the map and in the list */
+.rtabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:clamp(20px,3vw,32px)}
+.rtab{font:inherit;font-size:.92rem;font-weight:600;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:999px;padding:9px 16px;cursor:pointer}
+.rtab[aria-selected="true"]{background:var(--gold-soft);border-color:var(--gold)}
+.rtab:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.trip.off,.mapbox .route.off{display:none}
+.trip-k{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-text);margin-bottom:6px}
+.trip-note{color:var(--muted);font-size:.95rem}
+.trip:not([data-route="cg"]) .legs li{grid-template-columns:30px 1fr}
 
 /* about */
 .who-g{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(28px,5vw,64px);align-items:center}
@@ -356,9 +354,9 @@ html.movil .crew-g{grid-template-columns:repeat(2,minmax(0,1fr))}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   header{position:static}
   .rev-toggle{display:none}
-  figure,.q,.pcard,.rcard,details.f,.tr,.friend{break-inside:avoid}
+  figure,.q,.pcard,details.f,.tr,.friend{break-inside:avoid}
   /* On a phone the PDF is read by scrolling, so blocks may flow across pages instead of leaving gaps. */
-  html.movil :is(.pcard,.rcard,details.f,.tr,.friend){break-inside:auto}
+  html.movil :is(.pcard,details.f,.tr,.friend){break-inside:auto}
 }
 </style>
 </head>
@@ -415,8 +413,7 @@ html.movil .crew-g{grid-template-columns:repeat(2,minmax(0,1fr))}
       </div>
     </div>
     <figure class="ph">
-      <img src="img/hero-centrado.jpg" data-alt-es="Darshi con los brazos abiertos en un puente frente a una cascada" data-alt-en="Darshi with open arms on a bridge in front of a waterfall" alt="Darshi con los brazos abiertos en un puente frente a una cascada" width="740" height="925" fetchpriority="high">
-      <figcaption class="prov"><span class="t-es">Foto provisional · ideal: Darshi junto al coche, sin gafas, sonriendo a cámara, con paisaje</span><span class="t-en">Placeholder · ideal: Darshi by the car, no sunglasses, smiling</span></figcaption>
+      <img data-slot="hero" src="img/portada-darshi.jpg" data-alt-es="Darshi sonriendo a cámara" data-alt-en="Darshi smiling at the camera" alt="Darshi sonriendo a cámara" width="960" height="1200" fetchpriority="high">
     </figure>
   </div>
 </section>
@@ -437,8 +434,7 @@ html.movil .crew-g{grid-template-columns:repeat(2,minmax(0,1fr))}
       </div>
     </div>
     <figure class="ph">
-      <img src="img/lamparas.webp" data-alt-es="Darshi encendiendo lámparas de barro" data-alt-en="Darshi lighting clay lamps" alt="Darshi encendiendo lámparas de barro" loading="lazy">
-      <figcaption class="prov"><span class="t-es">Foto provisional · ideal: retrato cercano, sin gafas, mirando a cámara</span><span class="t-en">Placeholder · ideal: close portrait, no sunglasses</span></figcaption>
+      <img data-slot="about" src="img/lamparas.webp" data-alt-es="Darshi encendiendo lámparas de barro" data-alt-en="Darshi lighting clay lamps" alt="Darshi encendiendo lámparas de barro" loading="lazy">
     </figure>
   </div>
 </section>
@@ -494,19 +490,19 @@ html.movil .crew-g{grid-template-columns:repeat(2,minmax(0,1fr))}
     </div>
     <div class="travel">
       <article class="tr">
-        <figure class="ph"><img src="img/barca-gerard.webp" data-alt-es="Gerard y Darshi sonriendo en una barca" data-alt-en="Gerard and Darshi smiling on a boat" alt="Gerard y Darshi sonriendo en una barca" loading="lazy"><figcaption class="prov"><span class="t-es">Provisional · ideal: Darshi con viajeros preparando la ruta con un mapa</span><span class="t-en">Placeholder · ideal: Darshi planning the route with travellers</span></figcaption></figure>
+        <figure class="ph"><img data-slot="card_route" src="img/buduruwagala.jpg" data-alt-es="Las figuras de Buda talladas en la roca de Buduruwagala" data-alt-en="The Buddha figures carved into the rock at Buduruwagala" alt="Las figuras de Buda talladas en la roca de Buduruwagala" loading="lazy"></figure>
         <h3><span class="t-es">La ruta, la preparamos juntos</span><span class="t-en">We plan the route together</span></h3>
         <p class="t-es">Me cuentas tus fechas, tu idea de ruta o los lugares que te interesan, y la ajustamos juntos. En Sri Lanka las distancias engañan: en la montaña, pocos kilómetros pueden ser horas de carretera. Por eso preparamos el recorrido con tiempos reales y vemos dónde te apetece parar por el camino.</p>
         <p class="t-en">Tell me your dates, your route idea or the places you're interested in, and we'll fine-tune it together. In Sri Lanka distances are deceiving: in the hills, a few kilometres can mean hours on the road. So we plan the route with real driving times and see where you'd like to stop along the way.</p>
       </article>
       <article class="tr">
-        <figure class="ph"><img src="img/cascada-gerard.jpg" data-alt-es="Darshi y un viajero contemplando una cascada" data-alt-en="Darshi and a traveller looking at a waterfall" alt="Darshi y un viajero contemplando una cascada" loading="lazy"><figcaption class="prov"><span class="t-es">Provisional · ideal: comida casera con gente local</span><span class="t-en">Placeholder · ideal: home-cooked food with locals</span></figcaption></figure>
+        <figure class="ph"><img data-slot="card_tips" src="img/recomendaciones.jpg" style="object-position:50% 62%" data-alt-es="Darshi señalando una cascada a un viajero" data-alt-en="Darshi pointing out a waterfall to a traveller" alt="Darshi señalando una cascada a un viajero" loading="lazy"></figure>
         <h3><span class="t-es">Recomendaciones por el camino</span><span class="t-en">Recommendations along the way</span></h3>
         <p class="t-es">Te propongo sitios para visitar y comer, también menos turísticos, y te ayudo a organizar safaris y a conseguir entradas y billetes. Las entradas y actividades se pagan aparte.</p>
         <p class="t-en">I suggest places to visit and eat, including less touristy ones, and help you arrange safaris and get entrance and train tickets. Tickets and activities are paid separately.</p>
       </article>
       <article class="tr">
-        <div class="slot"><span class="t-es">Foto pendiente</span><span class="t-en">Photo to come</span><small><span class="t-es">Las vistas desde el tren a Ella, o vosotros asomados a la ventanilla</span><span class="t-en">The views from the Ella train, or travellers at the window</span></small></div>
+        <div class="slot" data-slot="card_train"><span class="t-es">Foto pendiente</span><span class="t-en">Photo to come</span><small><span class="t-es">Las vistas desde el tren a Ella, o vosotros asomados a la ventanilla</span><span class="t-en">The views from the Ella train, or travellers at the window</span></small></div>
         <h3><span class="t-es">El tren a Ella, sin cargar con las maletas</span><span class="t-en">The train to Ella, without carrying your luggage</span></h3>
         <p class="t-es">El tramo de montaña hasta Ella es uno de los trayectos en tren más bonitos del mundo: plantaciones de té, cascadas y valles desde la ventanilla. Te ayudo a conseguir los billetes, que en temporada alta se agotan pronto. Mientras tú disfrutas del paisaje, yo llevo las maletas en el coche y te recojo en la estación. Los billetes se pagan aparte.</p>
         <p class="t-en">The mountain stretch to Ella is one of the most beautiful train rides in the world: tea plantations, waterfalls and valleys from the window. I help you get tickets, which sell out early in high season. While you enjoy the views, I take your luggage in the car and pick you up at the station. Train tickets are paid separately.</p>
@@ -562,8 +558,8 @@ html.movil .crew-g{grid-template-columns:repeat(2,minmax(0,1fr))}
     <!-- The car: only what stays true if he changes car (no model). -->
     <div class="car" id="coche">
       <div class="car-ph">
-        <figure class="ph"><img src="img/coche.webp" data-alt-es="Darshi sentado en el capó de su coche negro con montañas detrás" data-alt-en="Darshi sitting on the bonnet of his black car with mountains behind" alt="Darshi sentado en el capó de su coche negro con montañas detrás" loading="lazy"><figcaption class="prov"><span class="t-es">Provisional · ideal: exterior del coche limpio</span><span class="t-en">Placeholder · ideal: clean car exterior</span></figcaption></figure>
-        <div class="slot"><span class="t-es">Maletero con maletas reales</span><span class="t-en">Boot with real luggage</span></div>
+        <figure class="ph"><img data-slot="car_outside" src="img/coche-darshi.jpg" style="object-position:32% 50%" data-alt-es="Darshi apoyado en su coche negro, con campos y montañas detrás" data-alt-en="Darshi leaning on his black car, with fields and hills behind" alt="Darshi apoyado en su coche negro, con campos y montañas detrás" loading="lazy"></figure>
+        <figure class="ph"><img data-slot="car_inside" src="img/coche-interior.jpg" data-alt-es="El interior del coche visto desde los asientos de atrás, con Darshi al volante" data-alt-en="Inside the car from the back seats, with Darshi driving" alt="El interior del coche visto desde los asientos de atrás, con Darshi al volante" loading="lazy"></figure>
       </div>
       <div style="display:grid;gap:18px;min-width:0">
         <p class="eyebrow"><span class="t-es">El coche</span><span class="t-en">The car</span></p>
@@ -612,20 +608,22 @@ html.movil .crew-g{grid-template-columns:repeat(2,minmax(0,1fr))}
   </div>
 </section>
 
-<!-- 6. REAL ROUTES: one route drawn on the map as the example; every other route is a text card -->
+<!-- 6. ROUTES: Darshi's routes (data/routes.json, drawn on the map by the script) and Claudia & Gerard's real trip (written below). A button switches between them. -->
 <section id="viaje-real" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow"><span class="t-es">Rutas reales</span><span class="t-en">Real routes</span></p>
-      <h2><span class="rt-many"><span class="t-es">Algunas de las rutas que he hecho</span><span class="t-en">Some of the routes I've done</span></span><span class="rt-one"><span class="t-es">Una ruta real</span><span class="t-en">A real route</span></span></h2>
-      <p class="lead"><span class="t-es">Para que te hagas una idea de cómo puede ser tu viaje.</span><span class="t-en">To give you an idea of what your trip could look like.</span></p>
+      <p class="eyebrow"><span class="t-es">Rutas</span><span class="t-en">Routes</span></p>
+      <h2><span class="t-es">Ideas para tu ruta</span><span class="t-en">Ideas for your route</span></h2>
+      <p class="lead"><span class="t-es">Para que te hagas una idea de cómo puede ser tu viaje. Luego la ajustamos juntos a tus días y a lo que te apetezca.</span><span class="t-en">To give you an idea of what your trip could look like. Then we fine-tune it together to your days and what you'd like.</span></p>
     </div>
+    <div class="rtabs" id="rtabs" role="tablist" hidden></div>
     <div class="trip-g">
       <div class="map">
         <div class="mapbox">
           <img src="img/mapa-relieve.jpg" data-alt-es="Mapa de relieve de Sri Lanka" data-alt-en="Relief map of Sri Lanka" alt="Mapa de relieve de Sri Lanka" width="960" height="1470" loading="lazy">
           <!-- equirectangular: x=(lon-79.2)/3.1*1200, y=(10.2-lat)/4.7*1838 -->
-          <svg viewBox="0 0 1200 1838" role="img" aria-label="Ruta: aeropuerto, Sigiriya, Kandy, Nuwara Eliya, Ella, Udawalawe, Yala, Mirissa">
+          <svg id="route-map" viewBox="0 0 1200 1838" role="img" aria-label="Mapa de la ruta">
+            <g class="route" data-route="cg">
             <polyline points="265,1181 604,877 556,1138 613,1263 715,1300 654,1457 852,1498 487,1663" fill="none" stroke="#16201A" stroke-width="16" stroke-linejoin="round" stroke-linecap="round" opacity=".55"/>
             <polyline points="265,1181 604,877 556,1138 613,1263 715,1300 654,1457 852,1498 487,1663" fill="none" stroke="#E2B348" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
             <g fill="#E2B348" stroke="#16201A" stroke-width="5">
@@ -643,13 +641,14 @@ html.movil .crew-g{grid-template-columns:repeat(2,minmax(0,1fr))}
               <text x="878" y="1512">Yala</text>
               <text x="487" y="1732" text-anchor="middle">Mirissa</text>
             </g>
+            </g>
           </svg>
         </div>
         <p class="credit"><span class="t-es">Mapa base:</span><span class="t-en">Base map:</span> Uwe Dedering, <a href="https://commons.wikimedia.org/wiki/File:Sri_Lanka_relief_location_map.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, CC BY-SA 3.0</p>
       </div>
-      <div class="trip">
+      <div class="trip" data-route="cg">
         <div class="trip-head">
-          <div><h3>Claudia &amp; Gerard</h3><p>Barcelona · <span class="t-es">noviembre de 2026 · pareja</span><span class="t-en">November 2026 · couple</span></p></div>
+          <div><p class="trip-k"><span class="t-es">Un viaje real</span><span class="t-en">A real trip</span></p><h3>Claudia &amp; Gerard</h3><p>Barcelona · <span class="t-es">noviembre de 2026 · pareja</span><span class="t-en">November 2026 · couple</span></p></div>
           <p class="days">9<small><span class="t-es">días con conductor</span><span class="t-en">days with a driver</span></small></p>
         </div>
         <ol class="legs">
@@ -662,15 +661,13 @@ html.movil .crew-g{grid-template-columns:repeat(2,minmax(0,1fr))}
           <li><span class="d"><span class="t-es">Día 9</span><span class="t-en">Day 9</span></span><span><b>Mirissa</b><span class="n"><span class="t-es">Fin del servicio con conductor</span><span class="t-en">End of the driver service</span></span></span></li>
         </ol>
         <div class="trip-ph">
-          <figure class="ph"><img src="img/barca-claudia.webp" data-alt-es="Claudia y Darshi en una barca en un lago" data-alt-en="Claudia and Darshi on a boat on a lake" alt="Claudia y Darshi en una barca en un lago" loading="lazy"><figcaption class="prov"><span class="t-es">Provisional · ideal: los tres, sin gafas</span><span class="t-en">Placeholder · ideal: the three of them</span></figcaption></figure>
-          <figure class="ph"><img src="img/cascada-gerard-2.jpg" data-alt-es="Darshi y Gerard señalando una cascada" data-alt-en="Darshi and Gerard pointing at a waterfall" alt="Darshi y Gerard señalando una cascada" loading="lazy"></figure>
+          <figure class="ph"><img data-slot="trip_1" src="img/barca-claudia.webp" data-alt-es="Claudia y Darshi en una barca en un lago" data-alt-en="Claudia and Darshi on a boat on a lake" alt="Claudia y Darshi en una barca en un lago" loading="lazy"><figcaption class="prov"><span class="t-es">Provisional · ideal: los tres, sin gafas</span><span class="t-en">Placeholder · ideal: the three of them</span></figcaption></figure>
+          <figure class="ph"><img data-slot="trip_2" src="img/viaje-elefante.jpg" data-alt-es="Darshi y Gerard mirando un elefante junto a la carretera" data-alt-en="Darshi and Gerard watching an elephant by the road" alt="Darshi y Gerard mirando un elefante junto a la carretera" loading="lazy"></figure>
         </div>
         <p class="pend"><span class="tag"><span class="t-es">Añadir vuestra frase del vídeo</span><span class="t-en">Add their line from the video</span></span></p>
       </div>
     </div>
 
-    <!-- More routes come from data/routes.json (edited from the Pages CMS panel). Text only: never drawn on the map. -->
-    <div class="rcards" id="routes-list"></div>
   </div>
 </section>
 
@@ -795,8 +792,111 @@ html.movil .crew-g{grid-template-columns:repeat(2,minmax(0,1fr))}
   function load(name){
     return fetch('data/' + name + '.json', { cache: 'no-cache' }).then(function(r){ return r.ok ? r.json() : []; }).catch(function(){ return []; });
   }
-  var rendered = Promise.all([load('reviews'), load('travellers'), load('routes')]).then(function(d){
+
+  // ---------- Routes on the map ----------
+  // Places Darshi's routes can use. Lat/lon; side = where the name goes ('l' left, 'r' right, 'b' below).
+  // A stop that isn't listed here still appears in the list, just not on the map: add it here to draw it.
+  var PLACES = {
+    'aeropuerto|airport|aeropuerto de colombo|colombo airport|katunayake': [7.18, 79.88, 'l', 'Aeropuerto', 'Airport'],
+    'colombo': [6.93, 79.85, 'l'], 'negombo': [7.21, 79.84, 'l'],
+    'sigiriya': [7.957, 80.76, 'l'], 'dambulla': [7.86, 80.65, 'l'], 'habarana': [8.03, 80.75, 'r'],
+    'minneriya': [8.03, 80.90, 'r'], 'polonnaruwa': [7.94, 81.0, 'r'], 'anuradhapura': [8.31, 80.40, 'r'],
+    'trincomalee': [8.59, 81.21, 'r'], 'pasikudah': [7.93, 81.56, 'r'], 'batticaloa': [7.72, 81.70, 'l'],
+    'jaffna': [9.66, 80.02, 'r'], 'wilpattu': [8.46, 80.04, 'l'], 'kalpitiya': [8.23, 79.77, 'r'],
+    'kandy': [7.29, 80.636, 'l'], 'matale': [7.47, 80.62, 'l'], 'pinnawala': [7.30, 80.39, 'l'],
+    'kitulgala': [6.99, 80.42, 'l'], 'nuwara eliya': [6.97, 80.784, 'l'], 'horton plains': [6.80, 80.80, 'l'],
+    'haputale': [6.77, 80.96, 'l'], 'ella': [6.876, 81.047, 'r'], 'arugam bay': [6.84, 81.83, 'b'],
+    'udawalawe|udawalawa': [6.474, 80.889, 'l'], 'yala': [6.37, 81.40, 'r'], 'tissamaharama': [6.28, 81.29, 'r'],
+    'tangalle': [6.02, 80.79, 'r'], 'mirissa': [5.947, 80.458, 'b'], 'weligama': [5.97, 80.43, 'b'],
+    'unawatuna': [6.01, 80.25, 'l'], 'galle': [6.03, 80.22, 'l'], 'hikkaduwa': [6.14, 80.10, 'l'],
+    'bentota': [6.42, 80.0, 'l'], 'sinharaja': [6.40, 80.50, 'l'], 'ratnapura': [6.68, 80.40, 'l']
+  };
+  var placeIndex = {};
+  Object.keys(PLACES).forEach(function(k){ k.split('|').forEach(function(n){ placeIndex[n] = PLACES[k]; }); });
+  function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim(); }
+  function place(name){ return placeIndex[norm(name)] || null; }
+  // Same projection as the base map: x=(lon-79.2)/3.1*1200, y=(10.2-lat)/4.7*1838
+  function xy(p){ return [Math.round((p[1] - 79.2) / 3.1 * 1200), Math.round((10.2 - p[0]) / 4.7 * 1838)]; }
+  // "Sigiriya · Kandy · Yala / Udawalawe" -> [['Sigiriya'], ['Kandy'], ['Yala', 'Udawalawe']]
+  function stopsOf(r){ return String(r.stops || '').split(/·|>|→|,/).map(function(s){ return s.split('/').map(function(x){ return x.trim(); }).filter(Boolean); }).filter(function(a){ return a.length; }); }
+  function stopName(n){ var p = place(n); return p && p[3] ? pair(p[3], p[4]) : esc(n); }
+
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  function svgEl(tag, attrs){ var e = document.createElementNS(SVGNS, tag); for (var a in attrs) e.setAttribute(a, attrs[a]); return e; }
+  function drawRoute(id, stops){
+    var g = svgEl('g', {'class': 'route', 'data-route': id}), pts = [], dots = svgEl('g', {fill: '#E2B348', stroke: '#16201A', 'stroke-width': 5}), lbl = svgEl('g', {'class': 'lbl'});
+    stops.forEach(function(alts){
+      alts.forEach(function(n, i){
+        var p = place(n); if (!p) return;
+        var c = xy(p);
+        if (i === 0) pts.push(c.join(','));
+        dots.appendChild(svgEl('circle', {cx: c[0], cy: c[1], r: 16}));
+        var side = p[2], t = svgEl('text', side === 'b' ? {x: c[0], y: c[1] + 70, 'text-anchor': 'middle'} : {x: c[0] + (side === 'l' ? -26 : 28), y: c[1] + 12, 'text-anchor': side === 'l' ? 'end' : 'start'});
+        if (p[3]) { var a = svgEl('tspan', {'class': 't-es'}); a.textContent = p[3]; var b = svgEl('tspan', {'class': 't-en'}); b.textContent = p[4]; t.appendChild(a); t.appendChild(b); }
+        else t.textContent = n;
+        lbl.appendChild(t);
+      });
+    });
+    if (pts.length > 1) {
+      g.appendChild(svgEl('polyline', {points: pts.join(' '), fill: 'none', stroke: '#16201A', 'stroke-width': 16, 'stroke-linejoin': 'round', 'stroke-linecap': 'round', opacity: '.55'}));
+      g.appendChild(svgEl('polyline', {points: pts.join(' '), fill: 'none', stroke: '#E2B348', 'stroke-width': 8, 'stroke-linejoin': 'round', 'stroke-linecap': 'round'}));
+    }
+    g.appendChild(dots); g.appendChild(lbl);
+    return g;
+  }
+  function tripHtml(id, r, n){
+    var days = r.days ? String(r.days).trim() : '', who = (r.who || '').trim();
+    var kicker = who ? pair('Un viaje real', 'A real trip') : pair('Ruta que te propongo', 'A route I suggest');
+    var title = who ? esc(who) : pair(r.name_es || 'Ruta ' + n, r.name_en || r.name_es || 'Route ' + n);
+    var note = (r.type_es || r.type_en) ? '<p class="trip-note">' + pair(r.type_es || r.type_en, r.type_en || r.type_es) + '</p>' : '';
+    var legs = stopsOf(r).map(function(alts, i){
+      return '<li><span class="d">' + (i + 1) + '</span><span><b>' + alts.map(stopName).join(' <span class="t-es">o</span><span class="t-en">or</span> ') + '</b></span></li>';
+    }).join('');
+    return '<div class="trip off" data-route="' + id + '"><div class="trip-head"><div><p class="trip-k">' + kicker + '</p><h3>' + title + '</h3>' + note + '</div>' +
+      (days ? '<p class="days">' + esc(days) + '<small>' + pair('días', 'days') + '</small></p>' : '') + '</div><ol class="legs">' + legs + '</ol></div>';
+  }
+  function chooseRoute(id){
+    document.querySelectorAll('#viaje-real [data-route]').forEach(function(e){ e.classList.toggle('off', e.getAttribute('data-route') !== id); });
+    document.querySelectorAll('#rtabs .rtab').forEach(function(b){ b.setAttribute('aria-selected', b.getAttribute('data-for') === id); });
+  }
+  function showRoutes(routes){
+    var map = document.getElementById('route-map'), real = document.querySelector('#viaje-real .trip[data-route="cg"]'), tabs = document.getElementById('rtabs');
+    if (!routes.length) return; // only Claudia & Gerard's trip, as before
+    var buttons = '';
+    routes.forEach(function(r, i){
+      var id = 'r' + i, who = (r.who || '').trim();
+      map.appendChild(drawRoute(id, stopsOf(r)));
+      real.insertAdjacentHTML('beforebegin', tripHtml(id, r, i + 1));
+      buttons += '<button type="button" class="rtab" role="tab" data-for="' + id + '">' + (who ? esc(who) : pair(r.name_es || 'Ruta ' + (i + 1), r.name_en || r.name_es || 'Route ' + (i + 1))) + '</button>';
+    });
+    buttons += '<button type="button" class="rtab" role="tab" data-for="cg">Claudia &amp; Gerard</button>';
+    tabs.innerHTML = buttons; tabs.hidden = false;
+    tabs.addEventListener('click', function(e){ var b = e.target.closest('.rtab'); if (b) chooseRoute(b.getAttribute('data-for')); });
+    chooseRoute('r0');
+  }
+
+  // Main photos chosen in the panel (data/photos.json). A photo that differs from the one in the HTML replaces it.
+  function showPhotos(p){
+    if (!p || Array.isArray(p)) return;
+    document.querySelectorAll('[data-slot]').forEach(function(el){
+      var s = p[el.getAttribute('data-slot')], src = s && s.photo;
+      if (!src || src === el.getAttribute('src')) return;
+      var d = s.description || 'Darshi';
+      var img = el;
+      if (el.tagName !== 'IMG') {
+        var fig = document.createElement('figure'); fig.className = 'ph';
+        img = document.createElement('img'); img.loading = 'lazy'; fig.appendChild(img);
+        el.replaceWith(fig);
+      }
+      img.removeAttribute('style'); img.removeAttribute('width'); img.removeAttribute('height');
+      img.src = src; img.setAttribute('data-alt-es', d); img.setAttribute('data-alt-en', d); img.alt = d;
+      var note = img.parentNode.querySelector('.prov'); if (note) note.remove();
+    });
+  }
+
+  var rendered = Promise.all([load('reviews'), load('travellers'), load('routes'), load('photos')]).then(function(d){
     var reviews = d[0], travellers = d[1], routes = d[2];
+    showPhotos(d[3]);
     var top = reviews.filter(function(r){ return r.featured; }), rest = reviews.filter(function(r){ return !r.featured; });
     var out = top.map(function(r, i){ return review(r, i === 0); }).join('');
     if (rest.length) out += '<details class="more-q"><summary>' + pair('Ver más opiniones (' + rest.length + ')', 'Read more reviews (' + rest.length + ')') +
@@ -810,12 +910,7 @@ html.movil .crew-g{grid-template-columns:repeat(2,minmax(0,1fr))}
     }).join('');
     crew.parentNode.hidden = !travellers.length;
 
-    document.getElementById('routes-list').innerHTML = routes.length
-      ? routes.map(function(r){
-          return '<article class="rcard"><p class="rcard-k">' + pair(r.days + ' días · ' + (r.type_es || ''), r.days + ' days · ' + (r.type_en || '')) +
-            '</p><h3>' + esc(r.who) + '</h3><p class="rcard-s">' + esc(r.stops) + '</p></article>';
-        }).join('')
-      : '<article class="rcard pend"><p class="rcard-k"><span class="tag">' + pair('Añade rutas desde el panel', 'Add routes from the panel') + '</span></p></article>';
+    showRoutes(routes);
 
     setLang(document.body.classList.contains('en') ? 'en' : 'es');
     if (/[?&]imprimir\b/.test(location.search)) prepPrint();
@@ -824,11 +919,14 @@ html.movil .crew-g{grid-template-columns:repeat(2,minmax(0,1fr))}
 
   document.getElementById('l-es').addEventListener('click', function(){ setLang('es'); });
   document.getElementById('l-en').addEventListener('click', function(){ setLang('en'); });
-  var saved = 'es';
-  try { saved = localStorage.getItem('apt-lang') || 'es'; } catch(e){}
-  // ?en or ?es in the address opens the page in that language.
+  // Which language to open in: ?en or ?es in the address, then the visitor's last choice,
+  // then Spanish if their phone or browser is in Spanish, otherwise English.
+  var saved = null;
+  try { saved = localStorage.getItem('apt-lang'); } catch(e){}
   var asked = (location.search.match(/[?&](en|es)\b/) || [])[1];
-  setLang((asked || saved) === 'en' ? 'en' : 'es');
+  var device = [].concat(navigator.languages || [], navigator.language || '');
+  var deviceEs = device.length && /^es\b/i.test(device[0] || '');
+  setLang(asked || (saved === 'en' || saved === 'es' ? saved : (deviceEs ? 'es' : 'en')));
 })();
 </script>
 </body>

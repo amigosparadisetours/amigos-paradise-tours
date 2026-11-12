@@ -34,17 +34,18 @@ One page, in this order (section ids in brackets): header with ES/EN switch and 
 
 ## How the two languages work
 
-- Every visible text exists twice: `<span class="t-es">…</span><span class="t-en">…</span>` (the class can also sit on a `p`, `ul` or `ol`). Spanish is the default; the EN button adds `class="en"` to `body`. Both versions must say the same thing.
+- Every visible text exists twice: `<span class="t-es">…</span><span class="t-en">…</span>` (the class can also sit on a `p`, `ul` or `ol`). The page opens in English, or in Spanish when the visitor's phone or browser is in Spanish (Darshi's choice); `?en` / `?es` and the visitor's last choice win over that. The EN button adds `class="en"` to `body`; the HTML itself is written with Spanish first. Both versions must say the same thing.
 - Images carry `data-alt-es` and `data-alt-en`; `alt` holds the Spanish one.
 - WhatsApp buttons are links with class `wa`. The script at the bottom fills in the prefilled message in the visitor's language. The number lives in the script (`num`), in the contact block and in the structured data in `<head>`: change all three if it ever changes. The prefilled message is also how Darshi knows a person came from the website, so keep it.
 
 ## Content Darshi edits from the panel
 
-Reviews, photos with travellers and route cards are **not written in `index.html`**. They live in three data files that Darshi edits himself, for free, from the Pages CMS panel (app.pagescms.org, configured in `.pages.yml`):
+The main photos, reviews, photos with travellers and routes are **not written in `index.html`**. They live in four data files that Darshi edits himself, for free, from the Pages CMS panel (app.pagescms.org, configured in `.pages.yml`):
 
 - `data/reviews.json`: each review has `name`, `from_es`/`from_en`, `trip_es`/`trip_en`, `original_language`, `original` (literal text), `spanish`/`english` (translations), `photo` and `featured` (shown among the first ones; the first featured review is shown bigger).
 - `data/travellers.json`: `photo` and `description` (English).
-- `data/routes.json`: `who`, `days`, `type_es`/`type_en`, `stops`. Text only: never drawn on the map.
+- `data/routes.json`: `name_es`/`name_en` (the button), `who`, `days`, `type_es`/`type_en` (a short note), `stops` (separated by "·"; "A / B" means either). A route with `who` is a real trip with those travellers; with an empty `who` it is "Ruta que te propongo / A route I suggest". The script draws every route on the map from the `PLACES` list (latitude/longitude) near the end of `index.html`: a stop missing from that list is shown in the list but not on the map, so add it there. One button per route switches the map; Claudia & Gerard's real trip, written in the HTML, is the last button.
+- `data/photos.json`: the main photos (top, About me, the three "How we'll travel" cards, the car, Claudia & Gerard's trip), each with `photo` and an English `description`. They match the `data-slot` attributes in `index.html`. A photo that differs from the one written in the HTML replaces it when the page loads.
 
 The script at the bottom of `index.html` reads these files and builds the markup (with the same classes as the rest of the page). To change any of this content, edit the JSON files, not the HTML. Keep the field names: the panel depends on them. If you add a field, add it to `.pages.yml` too.
 
@@ -69,9 +70,9 @@ When something is confirmed: write the real content in both languages, then remo
 
 ## Common tasks
 
-**Replace a photo.** Darshi uploads the photo to `img/` himself and tells you its name. Point the `src` to it, update `data-alt-es`, `data-alt-en` and `alt`, and remove the `.prov` caption if it's the final photo. Photos should be about 1,600 px on the long side at most and under about 400 KB; if one is much bigger, resize it if you can, or tell him. The hero photo is also the image WhatsApp shows when the link is shared (`og:image`, an absolute URL): if its file name or size changes, update `og:image`, `og:image:width` and `og:image:height`. Don't delete old photos unless he asks.
+**Replace a photo.** The main photos can be changed by Darshi from the panel ("Main photos"). If he asks you instead: put the photo in `img/`, update both `data/photos.json` and the `src`/`data-alt-es`/`data-alt-en`/`alt` of the matching `data-slot` image in `index.html` (keep them the same), and remove its `.prov` caption if it is the final photo. Photos should be about 1,600 px on the long side at most and under about 400 KB (the "Optimize photos" GitHub Action shrinks bigger ones). The hero photo is also the image WhatsApp shows when the link is shared (`og:image`, an absolute URL): if it changes, update `og:image`, `og:image:width` and `og:image:height`. Don't delete old photos unless he asks.
 
-**Add a review, a photo with travellers or a route.** Darshi can do it himself from the panel. If he asks you, add an entry to the matching file in `data/`. Reviews: literal text in `original`, the translations in `spanish`/`english`, the type of trip only if the traveller said it, and a photo only with their permission. Only `featured` reviews are visible at first (keep about 4); the rest appear behind "Ver más opiniones". **Never draw new routes on the map:** the map only shows Claudia and Gerard's route as an example.
+**Add a review, a photo with travellers or a route.** Darshi can do it himself from the panel. If he asks you, add an entry to the matching file in `data/`. Reviews: literal text in `original`, the translations in `spanish`/`english`, the type of trip only if the traveller said it, and a photo only with their permission. Only `featured` reviews are visible at first (keep about 4); the rest appear behind "Ver más opiniones". Routes are drawn on the map automatically from their stops (see above).
 
 **Answer a pending FAQ.** Ask Darshi for his answer, write it in his words in both languages, then remove the tag and the `pend` class from that `details`.
 
