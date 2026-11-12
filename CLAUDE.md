@@ -54,6 +54,7 @@ The main photos, reviews, photos with travellers, places, routes, the FAQ, the "
 - `data/faq.json`: `question_es`/`question_en`, `answer_es`/`answer_en` (paragraphs separated by an empty line). A question without an answer is not shown.
 - `data/help.json`: `before`, `arrival`, `during`, each a list of `{es, en}` lines (the "Antes del viaje / Al llegar / Durante el viaje" block in `#viajar`).
 - `data/car.json`: `specs` (list of `label_es`/`label_en`/`value_es`/`value_en`) and `note_es`/`note_en` (the italic sentence under them). No car model, ever.
+- `data/links.json`: `google_reviews`, the link to his Google reviews. While it is empty, the "Ver todas mis reseñas en Google" button in `#opiniones` stays hidden; with an `https://` link it appears.
 - `data/routes.json`: `name_es`/`name_en` (the button), `who`, `days`, `type_es`/`type_en` (a short note), `stops` (separated by "·"; "A / B" means either). A route with `who` is a real trip with those travellers; with an empty `who` it is "Ruta que te propongo / A route I suggest". The script draws every route on the map from the `PLACES` list (latitude/longitude) near the end of `index.html`: a stop missing from that list is shown in the list but not on the map, so add it there. One button per route switches the map (no buttons when there is only one route). All routes follow the same pattern.
 - `data/photos.json`: the main photos (top, About me, the three "How we'll travel" cards, the car), each with `photo` and an English `description`. They match the `data-slot` attributes in `index.html`. A photo that differs from the one written in the HTML replaces it when the page loads.
 
@@ -88,7 +89,7 @@ When something is confirmed: write the real content in both languages, then remo
 
 **Add the video.** Follow the comment above `.video` in `#opiniones`: a vertical MP4 (H.264, ideally under 15 MB) and a JPG poster in `img/`, then remove `pend`.
 
-**Add the Google reviews link.** In the `.more` block of `#opiniones`, add a link "Ver todas mis reseñas en Google" / "See all my Google reviews" to his Google Business profile, and remove the tag next to it.
+**Add the Google reviews link.** Darshi can do it in the panel ("Links"). If he asks you, put the link in `data/links.json`.
 
 ## Technical rules
 
