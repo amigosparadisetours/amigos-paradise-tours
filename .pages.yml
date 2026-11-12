@@ -83,8 +83,8 @@ content:
           - name: description
             label: What the photo shows, in English (e.g. Darshi with travellers in Ella)
             type: string
-      - name: trip_1
-        label: "Claudia & Gerard's trip · photo 1"
+      - name: car_3
+        label: "The car · photo 3"
         type: object
         fields:
           - name: photo
@@ -93,16 +93,7 @@ content:
           - name: description
             label: What the photo shows, in English (e.g. Darshi with travellers in Ella)
             type: string
-      - name: trip_2
-        label: "Claudia & Gerard's trip · photo 2"
-        type: object
-        fields:
-          - name: photo
-            label: Photo
-            type: image
-          - name: description
-            label: What the photo shows, in English (e.g. Darshi with travellers in Ella)
-            type: string
+
   - name: reviews
     label: Reviews
     type: file
@@ -172,6 +163,27 @@ content:
         required: true
       - name: description
         label: Short description in English (e.g. Darshi with a family in Ella)
+        type: string
+
+  - name: places
+    label: Places along the way
+    type: file
+    path: data/places.json
+    format: json
+    list: true
+    fields:
+      - name: photo
+        label: Photo (only your own photos)
+        type: image
+        required: true
+      - name: name_es
+        label: Name of the place in Spanish (e.g. Plantaciones de té)
+        type: string
+      - name: name_en
+        label: Name of the place in English (e.g. Tea plantations)
+        type: string
+      - name: by
+        label: Who took the photo (a traveller's first name, e.g. Claudia). Leave empty if you took it
         type: string
 
   - name: routes
