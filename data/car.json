@@ -1,0 +1,36 @@
+{
+  "specs": [
+    {
+      "label_es": "Vehículo",
+      "label_en": "Vehicle",
+      "value_es": "Coche privado con aire acondicionado",
+      "value_en": "Private car with air conditioning"
+    },
+    {
+      "label_es": "Pasajeros",
+      "label_en": "Passengers",
+      "value_es": "4: 1 delante y 3 detrás",
+      "value_en": "4: 1 in the front, 3 at the back"
+    },
+    {
+      "label_es": "Equipaje",
+      "label_en": "Luggage",
+      "value_es": "Unas 4 maletas grandes",
+      "value_en": "About 4 large suitcases"
+    },
+    {
+      "label_es": "Agua",
+      "label_en": "Water",
+      "value_es": "Disponible en el coche",
+      "value_en": "Available in the car"
+    },
+    {
+      "label_es": "Grupos más grandes",
+      "label_en": "Larger groups",
+      "value_es": "Puedo organizar una furgoneta",
+      "value_en": "I can arrange a van"
+    }
+  ],
+  "note_es": "Puedes elegir la música. Si prefieres descansar, lo respeto.",
+  "note_en": "You can choose the music. If you'd rather rest, I'll respect that."
+}

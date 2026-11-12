@@ -1,0 +1,60 @@
+{
+  "before": [
+    {
+      "es": "Preparar la ruta: mejoro la tuya o, si llegas sin plan, la diseño entera según tu tiempo, tus intereses y tu presupuesto",
+      "en": "Planning the route: I improve yours or, if you come without a plan, I design it all around your time, interests and budget"
+    },
+    {
+      "es": "Billetes del tren a Ella",
+      "en": "Tickets for the Ella train"
+    },
+    {
+      "es": "Jeeps de safari y entradas",
+      "en": "Safari jeeps and entrance tickets"
+    }
+  ],
+  "arrival": [
+    {
+      "es": "Te espero en el lugar que acordemos",
+      "en": "I meet you wherever we agree"
+    },
+    {
+      "es": "Agua en el coche",
+      "en": "Water in the car"
+    },
+    {
+      "es": "Dónde cambiar dinero",
+      "en": "Where to change money"
+    }
+  ],
+  "during": [
+    {
+      "es": "Salidas al amanecer, con menos calor y menos gente",
+      "en": "Sunrise starts, with less heat and fewer people"
+    },
+    {
+      "es": "Te cuento lo que vamos viendo",
+      "en": "I tell you about what we see along the way"
+    },
+    {
+      "es": "Comida casera con gente local y sitios menos turísticos",
+      "en": "Home-cooked food with locals and less touristy spots"
+    },
+    {
+      "es": "Te oriento sobre los precios y, cuando puedo, te consigo algún descuento",
+      "en": "Tips on fair prices and, when I can, a discount"
+    },
+    {
+      "es": "Las maletas en el coche el día del tren",
+      "en": "Your luggage in the car on train day"
+    },
+    {
+      "es": "Plan B si llueve, y cambios sobre la marcha",
+      "en": "A plan B if it rains, and changes on the go"
+    },
+    {
+      "es": "Puedes escribirme si necesitas ayuda durante el viaje",
+      "en": "Message me if you need help during the trip"
+    }
+  ]
+}

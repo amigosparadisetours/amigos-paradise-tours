@@ -1,8 +1,8 @@
 [
-  { "photo": "img/sigiriya.jpg", "name_es": "Sigiriya", "name_en": "Sigiriya", "by": "Claudia" },
-  { "photo": "img/lugar-te.jpg", "name_es": "Plantaciones de té", "name_en": "Tea plantations", "by": "Claudia" },
-  { "photo": "img/lugar-nine-arches.jpg", "name_es": "Nine Arches, Ella", "name_en": "Nine Arches, Ella", "by": "Claudia" },
-  { "photo": "img/lugar-buduruwagala.jpg", "name_es": "Buduruwagala", "name_en": "Buduruwagala", "by": "Claudia" },
-  { "photo": "img/elefantes-cria.jpg", "name_es": "Safari de elefantes", "name_en": "Elephant safari", "by": "Claudia" },
-  { "photo": "img/lugar-comida.jpg", "name_es": "Comida tradicional", "name_en": "Traditional food", "by": "Claudia" }
+  { "photo": "img/sigiriya.jpg", "name_es": "Sigiriya", "name_en": "Sigiriya", "by": "Claudia Villa", "by_from_es": "España", "by_from_en": "Spain" },
+  { "photo": "img/lugar-te.jpg", "name_es": "Plantaciones de té", "name_en": "Tea plantations", "by": "Claudia Villa", "by_from_es": "España", "by_from_en": "Spain" },
+  { "photo": "img/lugar-nine-arches.jpg", "name_es": "Nine Arches, Ella", "name_en": "Nine Arches, Ella", "by": "Claudia Villa", "by_from_es": "España", "by_from_en": "Spain" },
+  { "photo": "img/lugar-buduruwagala.jpg", "name_es": "Buduruwagala", "name_en": "Buduruwagala", "by": "Claudia Villa", "by_from_es": "España", "by_from_en": "Spain" },
+  { "photo": "img/elefantes-cria.jpg", "name_es": "Safari de elefantes", "name_en": "Elephant safari", "by": "Claudia Villa", "by_from_es": "España", "by_from_en": "Spain" },
+  { "photo": "img/lugar-comida.jpg", "name_es": "Comida tradicional", "name_en": "Traditional food", "by": "Claudia Villa", "by_from_es": "España", "by_from_en": "Spain" }
 ]

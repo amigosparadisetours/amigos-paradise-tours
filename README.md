@@ -26,6 +26,9 @@ Open **app.pagescms.org**, tap **Sign in with GitHub** and choose **amigos-parad
 - **Photos with travellers**.
 - **Places along the way**: the row of photos of places under the routes, with their names.
 - **Routes**: the route ideas, drawn on the map by themselves.
+- **Questions (FAQ)**: the questions and your answers, in Spanish and English.
+- **Before, on arrival and during the trip**: the lists of what you do for your travellers.
+- **The car (details)**: passengers, luggage, water, larger groups, and the sentence about music.
 
 Tap **Save** and the website updates in one or two minutes. You can upload photos straight from your phone: big photos are made smaller by themselves. Your guide (PDF) explains every step.
 
@@ -38,11 +41,11 @@ The free Claude app can't change the website, but it can help you do it from you
 
 ### 3. Paid only the month you need it: Claude Pro (changes in the code)
 
-Only for things the panel can't do: changing a text or an FAQ answer, adding the video, adding the link to your Google reviews, a new section, or a new place on the route map. You may never need it.
+Only for things the panel can't do: changing the other texts (the top of the page, About me, the cards), adding the video, adding the link to your Google reviews, a new section, or a new place on the route map. You may never need it.
 
 1. Pay **Claude Pro for one month**. Cancel it when you finish: you keep it until the end of the month, and the website keeps working without it.
 2. Open the Claude app › **Code** › choose **amigos-paradise-tours**.
-3. Write what you want, in simple English. For example: *"Change the answer about tips: …"* or *"Add the link to my Google reviews: …"*.
+3. Write what you want, in simple English. For example: *"Change the text in About me: …"* or *"Add the link to my Google reviews: …"*.
 4. Claude explains what it will change, changes it in Spanish and English and opens a **pull request**.
 5. Open the pull request (GitHub app or github.com) and tap **Merge**. The website updates in about a minute.
 6. If something is wrong, tell Claude: *"Undo the last change"*, and merge again.

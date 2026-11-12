@@ -550,18 +550,15 @@ html.movil .crew-g{grid-template-columns:repeat(2,minmax(0,1fr))}
       <div class="care-g">
         <div>
           <p class="mom-k"><span class="t-es">Antes del viaje</span><span class="t-en">Before the trip</span></p>
-          <ul class="t-es"><li>Preparar la ruta: mejoro la tuya o, si llegas sin plan, la diseño entera según tu tiempo, tus intereses y tu presupuesto</li><li>Billetes del tren a Ella</li><li>Jeeps de safari y entradas</li></ul>
-          <ul class="t-en"><li>Planning the route: I improve yours or, if you come without a plan, I design it all around your time, interests and budget</li><li>Tickets for the Ella train</li><li>Safari jeeps and entrance tickets</li></ul>
+          <ul data-help="before"></ul>
         </div>
         <div>
           <p class="mom-k"><span class="t-es">Al llegar</span><span class="t-en">On arrival</span></p>
-          <ul class="t-es"><li>Te espero en el lugar que acordemos</li><li>Agua en el coche</li><li>Dónde cambiar dinero</li></ul>
-          <ul class="t-en"><li>I meet you wherever we agree</li><li>Water in the car</li><li>Where to change money</li></ul>
+          <ul data-help="arrival"></ul>
         </div>
         <div>
           <p class="mom-k"><span class="t-es">Durante el viaje</span><span class="t-en">During the trip</span></p>
-          <ul class="t-es"><li>Salidas al amanecer, con menos calor y menos gente</li><li>Te cuento lo que vamos viendo</li><li>Comida casera con gente local y sitios menos turísticos</li><li>Te oriento sobre los precios y, cuando puedo, te consigo algún descuento</li><li>Las maletas en el coche el día del tren</li><li>Plan B si llueve, y cambios sobre la marcha</li><li>Puedes escribirme si necesitas ayuda durante el viaje</li></ul>
-          <ul class="t-en"><li>Sunrise starts, with less heat and fewer people</li><li>I tell you about what we see along the way</li><li>Home-cooked food with locals and less touristy spots</li><li>Tips on fair prices and, when I can, a discount</li><li>Your luggage in the car on train day</li><li>A plan B if it rains, and changes on the go</li><li>Message me if you need help during the trip</li></ul>
+          <ul data-help="during"></ul>
         </div>
       </div>
     </div>
@@ -576,14 +573,8 @@ html.movil .crew-g{grid-template-columns:repeat(2,minmax(0,1fr))}
       <div style="display:grid;gap:18px;min-width:0">
         <p class="eyebrow"><span class="t-es">El coche</span><span class="t-en">The car</span></p>
         <h2><span class="t-es">El coche para tu viaje</span><span class="t-en">The car for your trip</span></h2>
-        <ul class="specs">
-          <li><span><span class="t-es">Vehículo</span><span class="t-en">Vehicle</span></span><span><span class="t-es">Coche privado con aire acondicionado</span><span class="t-en">Private car with air conditioning</span></span></li>
-          <li><span><span class="t-es">Pasajeros</span><span class="t-en">Passengers</span></span><span><span class="t-es">4: 1 delante y 3 detrás</span><span class="t-en">4: 1 in the front, 3 at the back</span></span></li>
-          <li><span><span class="t-es">Equipaje</span><span class="t-en">Luggage</span></span><span><span class="t-es">Unas 4 maletas grandes</span><span class="t-en">About 4 large suitcases</span> <span class="tag"><span class="t-es">Confirmar que caben con las 4 plazas ocupadas</span><span class="t-en">Confirm they fit with all 4 seats taken</span></span></span></li>
-          <li><span><span class="t-es">Agua</span><span class="t-en">Water</span></span><span><span class="t-es">Disponible en el coche</span><span class="t-en">Available in the car</span></span></li>
-          <li><span><span class="t-es">Grupos más grandes</span><span class="t-en">Larger groups</span></span><span><span class="t-es">Puedo organizar una furgoneta</span><span class="t-en">I can arrange a van</span></span></li>
-        </ul>
-        <p class="car-note"><span class="t-es">Puedes elegir la música. Si prefieres descansar, lo respeto.</span><span class="t-en">You can choose the music. If you'd rather rest, I'll respect that.</span></p>
+        <ul class="specs" id="car-specs"></ul>
+        <p class="car-note" id="car-note"></p>
       </div>
     </div>
   </div>
@@ -658,21 +649,7 @@ html.movil .crew-g{grid-template-columns:repeat(2,minmax(0,1fr))}
       <p class="eyebrow"><span class="t-es">Preguntas frecuentes</span><span class="t-en">FAQ</span></p>
       <h2><span class="t-es">Antes de reservar</span><span class="t-en">Before you book</span></h2>
     </div>
-    <div class="faq">
-      <details class="f"><summary><span class="t-es">¿Conduces tú todos los días del viaje?</span><span class="t-en">Will you be the driver throughout the trip?</span></summary><div class="a"><p class="t-es">Conduzco yo siempre que estoy disponible. Si ya tengo otra reserva o no puedo conducir por algún motivo, cuento con una comunidad de conductores profesionales de confianza. En ese caso te asigno uno y coordino yo mismo todo el viaje, de principio a fin, para que todo salga como esperas.</p><p class="t-en">I drive my guests myself whenever I'm available. If I already have another booking or can't drive for any reason, I have a trusted community of professional drivers. I arrange one of them and coordinate the whole trip myself, from beginning to end, so everything goes the way you expect.</p></div></details>
-      <details class="f" id="faq-idioma"><summary><span class="t-es">Mi inglés es muy básico. ¿Podremos entendernos?</span><span class="t-en">My English is very basic. Will we understand each other?</span></summary><div class="a"><p class="t-es">Sí. Muchos de mis viajeros llegan con un inglés muy básico y acaban soltándose durante el viaje. Hablo claro, sin prisas, y me adapto a cada persona; estoy acostumbrado a entender a quien le faltan palabras. Lo cuenta Ricardo: «Habla inglés perfecto y se le entiende super bien». Además, sigo aprendiendo español.</p><p class="t-es">Si te da miedo, antes de reservar hablamos por videollamada o con notas de voz, y así ves cómo nos entendemos.</p><p class="t-en">Yes. Many of my guests arrive with very basic English and end up speaking more and more during the trip. I speak clearly, take my time and adapt to each person; I'm used to understanding people who are short of words. As Ricardo put it: “He speaks perfect English and he's really easy to understand.” I'm also learning Spanish.</p><p class="t-en">If you're worried, we can have a video call or swap voice notes before you book, so you can see how we understand each other.</p><span class="tag"><span class="t-es">Añadir lo que contéis Claudia y Gerard sobre el idioma</span><span class="t-en">Add Claudia and Gerard on the language</span></span></div></details>
-      <details class="f"><summary><span class="t-es">¿Cómo organizamos los trayectos?</span><span class="t-en">How do we organise the drives?</span></summary><div class="a"><p class="t-es">No me gusta llevar a nadie con prisas de un sitio a otro. Prefiero un ritmo cómodo y flexible, con tiempo para visitar, comer, hacer fotos y descansar. Los horarios de cada día los organizamos según la ruta y lo que prefieras.</p><p class="t-en">I don't like rushing guests from one place to another. I prefer a comfortable, flexible rhythm, with time for sightseeing, meals, photos and rest. We organise each day's times around the route and what you prefer.</p></div></details>
-      <details class="f"><summary><span class="t-es">¿Puedo viajar sola o solo?</span><span class="t-en">Can I travel with you on my own?</span></summary><div class="a"><p class="t-es">Sí, también he viajado con personas que venían solas. Puedes leer sus experiencias arriba y contarme qué viaje estás preparando.</p><p class="t-en">Yes, I've also travelled with people on their own. You can read their experiences above and tell me what trip you're planning.</p></div></details>
-      <details class="f"><summary><span class="t-es">¿Viajas con familias con niños?</span><span class="t-en">Do you travel with families with children?</span></summary><div class="a"><p class="t-es">Sí, viajo a menudo con familias con niños. Tengo una silla de bebé para el coche y, si no se ajusta a la edad o al tamaño del niño, consigo una adecuada.</p><p class="t-en">Yes, I often travel with families with children. I have a baby car seat and, if it doesn't suit the child's age or size, I arrange a suitable one.</p></div></details>
-      <details class="f"><summary><span class="t-es">¿Entras con nosotros en las visitas?</span><span class="t-en">Do you come with us on the visits?</span></summary><div class="a"><p class="t-es">Siempre que puedo, sí: me gusta descubrir Sri Lanka con mis viajeros, no esperar en el coche. En los yacimientos arqueológicos y los lugares religiosos hay guías oficiales, y respeto sus normas. En miradores, cascadas y otros sitios, si el aparcamiento lo permite, suelo ir contigo.</p><p class="t-en">Whenever possible, yes: I enjoy exploring Sri Lanka with my guests rather than waiting in the car. Archaeological and religious sites have official guides, and I respect their rules. At viewpoints, waterfalls and other places, if parking allows, I usually come with you.</p></div></details>
-      <details class="f"><summary><span class="t-es">¿Tu alojamiento y tus comidas están incluidos?</span><span class="t-en">Are your accommodation and meals included?</span></summary><div class="a"><p class="t-es">Sí. Mi alojamiento y mis comidas durante el viaje están incluidos en el presupuesto.</p><p class="t-en">Yes. My accommodation and meals during the trip are included in the quote.</p></div></details>
-      <details class="f"><summary><span class="t-es">¿Podemos hacer una parte de la ruta en tren?</span><span class="t-en">Can we take the train for part of the route?</span></summary><div class="a"><p class="t-es">Sí, lo tenemos en cuenta al preparar la ruta y acordamos la estación donde te recojo y cómo va el equipaje. Los billetes se pagan aparte.</p><p class="t-en">Yes, we include it when planning the route and agree where I'll pick you up and how we'll transport your luggage. Train tickets are paid separately.</p></div></details>
-      <details class="f"><summary><span class="t-es">¿Y si llego de madrugada o se retrasa el vuelo?</span><span class="t-en">What if I land at night or my flight is delayed?</span></summary><div class="a"><p class="t-es">No pasa nada. Antes de que llegues te pido los datos del vuelo y lo sigo, así sé cuándo aterrizas. Normalmente te espero yo mismo en el aeropuerto, aunque llegues de madrugada o con retraso. Si prefieres descansar primero en un hotel junto al aeropuerto, también puedo recogerte al día siguiente.</p><p class="t-en">It's not a problem at all. Before you arrive I ask for your flight details and track your flight, so I know when you land. I usually meet you at the airport myself, even late at night or if the flight is delayed. If you'd rather rest first at a hotel near the airport, I can also pick you up the next day.</p></div></details>
-      <details class="f"><summary><span class="t-es">¿Cuál es la mejor época para ir?</span><span class="t-en">When is the best time to go?</span></summary><div class="a"><p class="t-es">Sri Lanka tiene dos monzones, así que la época influye en qué zonas conviene incluir. Por ejemplo, las ballenas de Mirissa se ven sobre todo de noviembre a abril, y en julio o agosto, según el año, Kandy celebra la Esala Perahera, su gran festival. Cuéntame tus fechas y lo que te gustaría conocer, y te propongo la ruta que mejor encaje.</p><p class="t-en">Sri Lanka has two monsoons, so the time of year affects which areas to include. For example, whales off Mirissa are mostly seen from November to April, and in July or August, depending on the year, Kandy holds the Esala Perahera, its great festival. Tell me your dates and what you'd like to see, and I'll suggest the route that fits best.</p></div></details>
-      <details class="f"><summary><span class="t-es">¿Nos llevarás a jardines de especias o a tiendas de piedras preciosas?</span><span class="t-en">Will you take us to spice gardens or gem shops?</span></summary><div class="a"><p class="t-es">No. No trabajo con tiendas ni restaurantes a comisión. Para mí, que estés contento es más importante, y quiero que confíes en que te recomiendo las cosas por lo que te interesa, no por lo que yo gano. Además, creo en el karma. Si puedo negociar un mejor precio o un descuento, siempre lo intento.</p><p class="t-es">Una cosa que es bueno saber: en muchos restaurantes de zonas turísticas es habitual invitar a comer al conductor. Es una costumbre del sector, no una comisión.</p><p class="t-en">No. I don't work with commission-based shops or restaurants. Your happiness matters more to me, and I want you to trust that I recommend things for your interests, not for what I earn. I also believe in karma. If I can get you a better price or a discount, I always try.</p><p class="t-en">Good to know: many restaurants in tourist areas traditionally offer drivers a free meal. It's a normal custom in the industry, not a commission.</p></div></details>
-      <details class="f"><summary><span class="t-es">¿Se deja propina?</span><span class="t-en">Should we tip?</span></summary><div class="a"><p class="t-es">Las propinas siempre se agradecen, pero nunca son obligatorias. Para mí son una bonita señal de que estás contento con el viaje, sea la cantidad que sea.</p><p class="t-en">Tips are always appreciated, but never expected or compulsory. For me, a tip is a lovely sign that you're happy with the trip, whatever the amount.</p></div></details>
-      <details class="f"><summary><span class="t-es">¿Cómo se paga y qué pasa si cancelo?</span><span class="t-en">How do I pay, and what if I cancel?</span></summary><div class="a"><p class="t-es">Pido una pequeña señal para reservar tus fechas solo para ti, y el resto se paga durante el viaje. Antes de confirmar te envío por escrito la ruta, los detalles y las condiciones.</p><p class="t-es">La señal normalmente no se devuelve, porque en cuanto confirmo tus fechas rechazo otros viajes. Pero entiendo que puede haber imprevistos: si cancelas con tiempo, sobre todo un mes antes, lo hablamos y, si es posible, te la devuelvo. Y si hay un motivo de peso, siempre busco una solución justa.</p><p class="t-en">I ask for a small advance payment to reserve your dates just for you, and the rest is paid during the trip. Before confirming, I send you the route, the details and the conditions in writing.</p><p class="t-en">The advance payment is usually non-refundable, because once I confirm your dates I turn down other trips. But I understand unexpected things happen: if you cancel well in advance, especially around a month before, we talk about it and, where possible, I refund it. And if there's a genuine reason, I always try to find a fair solution.</p></div></details>
-    </div>
+    <div class="faq" id="faq-list"></div>
   </div>
 </section>
 
@@ -873,7 +850,7 @@ html.movil .crew-g{grid-template-columns:repeat(2,minmax(0,1fr))}
     });
   }
 
-  var rendered = Promise.all([load('reviews'), load('travellers'), load('routes'), load('photos'), load('places')]).then(function(d){
+  var rendered = Promise.all([load('reviews'), load('travellers'), load('routes'), load('photos'), load('places'), load('faq'), load('help'), load('car')]).then(function(d){
     var reviews = d[0], travellers = d[1], routes = d[2];
     showPhotos(d[3]);
     var top = reviews.filter(function(r){ return r.featured; }), rest = reviews.filter(function(r){ return !r.featured; });
@@ -891,10 +868,28 @@ html.movil .crew-g{grid-template-columns:repeat(2,minmax(0,1fr))}
 
     showRoutes(routes);
 
+    // FAQ, "before / on arrival / during" lists and car details (data/faq.json, data/help.json, data/car.json)
+    var paras = function(es, en){
+      var a = String(es || en || '').split(/\n\s*\n/), b = String(en || es || '').split(/\n\s*\n/);
+      return a.map(function(t){ return '<p class="t-es">' + esc(t.trim()) + '</p>'; }).join('') + b.map(function(t){ return '<p class="t-en">' + esc(t.trim()) + '</p>'; }).join('');
+    };
+    document.getElementById('faq-list').innerHTML = (d[5] || []).filter(function(q){ return (q.question_es || q.question_en) && (q.answer_es || q.answer_en); }).map(function(q){
+      return '<details class="f"><summary>' + pair(q.question_es || q.question_en, q.question_en || q.question_es) + '</summary><div class="a">' + paras(q.answer_es, q.answer_en) + '</div></details>';
+    }).join('');
+    var help = d[6] || {};
+    document.querySelectorAll('[data-help]').forEach(function(ul){
+      ul.innerHTML = (help[ul.getAttribute('data-help')] || []).filter(function(x){ return x.es || x.en; }).map(function(x){ return '<li>' + pair(x.es || x.en, x.en || x.es) + '</li>'; }).join('');
+    });
+    var car = d[7] || {};
+    document.getElementById('car-specs').innerHTML = (car.specs || []).filter(function(s){ return s.value_es || s.value_en; }).map(function(s){
+      return '<li><span>' + pair(s.label_es || s.label_en, s.label_en || s.label_es) + '</span><span>' + pair(s.value_es || s.value_en, s.value_en || s.value_es) + '</span></li>';
+    }).join('');
+    var cn = document.getElementById('car-note'); cn.innerHTML = (car.note_es || car.note_en) ? pair(car.note_es || car.note_en, car.note_en || car.note_es) : ''; cn.hidden = !cn.innerHTML;
+
     var places = d[4] || [], pl = document.getElementById('places-list');
     pl.innerHTML = places.filter(function(p){ return p.photo; }).map(function(p){
       var es = p.name_es || p.name_en || '', en = p.name_en || es;
-      return '<figure><img src="' + esc(p.photo) + '" data-alt-es="' + esc(es) + '" data-alt-en="' + esc(en) + '" alt="' + esc(es) + '" loading="lazy"><figcaption>' + pair(es, en) + (p.by ? '<small>' + pair('Foto: ' + esc(p.by), 'Photo: ' + esc(p.by)) + '</small>' : '') + '</figcaption></figure>';
+      return '<figure><img src="' + esc(p.photo) + '" data-alt-es="' + esc(es) + '" data-alt-en="' + esc(en) + '" alt="' + esc(es) + '" loading="lazy"><figcaption>' + pair(es, en) + (p.by ? '<small>' + pair('Foto: ' + p.by + (p.by_from_es || p.by_from_en ? ' (' + (p.by_from_es || p.by_from_en) + ')' : ''), 'Photo: ' + p.by + (p.by_from_en || p.by_from_es ? ' (' + (p.by_from_en || p.by_from_es) + ')' : '')) + '</small>' : '') + '</figcaption></figure>';
     }).join('');
     pl.parentNode.hidden = !pl.children.length;
 

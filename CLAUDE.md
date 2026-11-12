@@ -46,11 +46,14 @@ One page, in this order (section ids in brackets): header with ES/EN switch and 
 
 ## Content Darshi edits from the panel
 
-The main photos, reviews, photos with travellers, places and routes are **not written in `index.html`**. They live in five data files that Darshi edits himself, for free, from the Pages CMS panel (app.pagescms.org, configured in `.pages.yml`):
+The main photos, reviews, photos with travellers, places, routes, the FAQ, the "before / on arrival / during" lists and the car details are **not written in `index.html`**. They live in data files that Darshi edits himself, for free, from the Pages CMS panel (app.pagescms.org, configured in `.pages.yml`):
 
 - `data/reviews.json`: each review has `name`, `from_es`/`from_en`, `trip_es`/`trip_en`, `original_language`, `original` (literal text), `spanish`/`english` (translations), `photo` and `featured` (shown among the first ones; the first featured review is shown bigger).
 - `data/travellers.json`: `photo` and `description` (English).
 - `data/places.json`: the strip "Algunos lugares del camino / Some places along the way" under the routes. Each place has `photo`, `name_es` and `name_en` (the caption, also its alt text) and `by` (the traveller who took it, shown as "Foto: …"; empty if Darshi took it). The line under the title says they are real photos taken by his travellers. Only Darshi's or his travellers' own photos, never photos from the internet, and only names of places he confirms.
+- `data/faq.json`: `question_es`/`question_en`, `answer_es`/`answer_en` (paragraphs separated by an empty line). A question without an answer is not shown.
+- `data/help.json`: `before`, `arrival`, `during`, each a list of `{es, en}` lines (the "Antes del viaje / Al llegar / Durante el viaje" block in `#viajar`).
+- `data/car.json`: `specs` (list of `label_es`/`label_en`/`value_es`/`value_en`) and `note_es`/`note_en` (the italic sentence under them). No car model, ever.
 - `data/routes.json`: `name_es`/`name_en` (the button), `who`, `days`, `type_es`/`type_en` (a short note), `stops` (separated by "·"; "A / B" means either). A route with `who` is a real trip with those travellers; with an empty `who` it is "Ruta que te propongo / A route I suggest". The script draws every route on the map from the `PLACES` list (latitude/longitude) near the end of `index.html`: a stop missing from that list is shown in the list but not on the map, so add it there. One button per route switches the map (no buttons when there is only one route). All routes follow the same pattern.
 - `data/photos.json`: the main photos (top, About me, the three "How we'll travel" cards, the car), each with `photo` and an English `description`. They match the `data-slot` attributes in `index.html`. A photo that differs from the one written in the HTML replaces it when the page loads.
 
@@ -81,7 +84,7 @@ When something is confirmed: write the real content in both languages, then remo
 
 **Add a review, a photo with travellers or a route.** Darshi can do it himself from the panel. If he asks you, add an entry to the matching file in `data/`. Reviews: literal text in `original`, the translations in `spanish`/`english`, the type of trip only if the traveller said it, and a photo only with their permission. Only `featured` reviews are visible at first (keep about 4); the rest appear behind "Ver más opiniones". Routes are drawn on the map automatically from their stops (see above).
 
-**Answer a pending FAQ.** Ask Darshi for his answer, write it in his words in both languages, then remove the tag and the `pend` class from that `details`.
+**Change or add an FAQ.** Darshi can do it in the panel ("Questions (FAQ)"). If he asks you, edit `data/faq.json` in his words, in both languages.
 
 **Add the video.** Follow the comment above `.video` in `#opiniones`: a vertical MP4 (H.264, ideally under 15 MB) and a JPG poster in `img/`, then remove `pend`.
 
