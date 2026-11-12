@@ -6,6 +6,12 @@ The website of **Darshi**, a private driver in Sri Lanka: one static page (`inde
 
 The site was designed to run for years without maintenance. Keep it that way.
 
+## Documentation
+
+- `README.md`: the overview for Darshi and his friend (what he can change for free in the panel, what needs Claude Pro, how to invite a developer).
+- `docs/Darshi-Your-website-guide.pdf`: his step-by-step guide. If you change how the panel or a section works, tell him the guide needs updating.
+- This file: the rules and how the code works.
+
 ## Working with Darshi
 
 Darshi owns this repository and asks for changes from the Claude app on his phone, usually in English. He is not technical.
