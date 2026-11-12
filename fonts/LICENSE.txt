@@ -1,0 +1,8 @@
+The fonts in this folder were downloaded from Google Fonts (latin subset; Sinhala subset for
+Noto Serif Sinhala). All of them are licensed under the SIL Open Font License, Version 1.1:
+https://openfontlicense.org
+
+- Libre Caslon Display and Libre Caslon Text: Copyright 2012 The Libre Caslon Project Authors
+  (https://github.com/impallari/Libre-Caslon)
+- Figtree: Copyright 2022 The Figtree Project Authors (https://github.com/erikdkennedy/figtree)
+- Noto Serif Sinhala: Copyright 2022 The Noto Project Authors (https://github.com/notofonts/sinhala)

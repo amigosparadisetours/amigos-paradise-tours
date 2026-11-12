@@ -1,0 +1,81 @@
+# Amigos Paradise Tours – website
+
+The website of **Darshi**, a private driver in Sri Lanka: one static page (`index.html`), no framework, no build step, published with GitHub Pages at https://amigosparadisetours.com.
+
+**Its only goal:** a traveller who was recommended Darshi, usually a Spanish traveller from a WhatsApp travel group opening the link on a phone, trusts him and messages him on WhatsApp. Every change must serve that.
+
+The site was designed to run for years without maintenance. Keep it that way.
+
+## Working with Darshi
+
+Darshi owns this repository and asks for changes from the Claude app on his phone, usually in English. He is not technical.
+
+- Reply in short, simple English. No jargon (say "the photo at the top", not "hero image").
+- Before editing, say in one line what you will change. If the request is unclear, ask one question first.
+- Change only what he asked for. Never rewrite or remove anything else.
+- Every change goes in **both languages** (Spanish and English). If he writes the new text in English, write the Spanish version yourself and show it to him.
+- When you finish, open a pull request and tell him: "Open the pull request and tap Merge. The website updates in about a minute." If something goes wrong after merging, he can ask you to undo the last change.
+
+## Rules that protect who he is (never break these)
+
+1. **Never invent facts.** No numbers, years of experience, services, guarantees, prices or places he hasn't confirmed. If a text needs a fact, ask Darshi.
+2. **Reviews are literal quotes.** Never change their words, spelling or punctuation (for example "super bien" and "Darshik" stay as written). A translation is marked "Translated from Spanish", "Traducida del inglés" or "Traducida del francés". Only add a review if Darshi confirms the person agreed to appear.
+3. **Darshi's own quotes are literal too:** the quote in the hero and the "whole heart" quote in "About me". His "I trust your word" about the deposit is a personal gesture for WhatsApp: don't put it on the website.
+4. **His motto stays in English in both languages:** "Come as a guest, leave as amigo", with "amigo" underlined in gold.
+5. **Voice:** first person (Darshi speaks). Spanish from Spain, addressing the reader as **tú** (never vosotros or usted). Warm, simple, short sentences, like a friend. No marketing words ("best", "unique", "unforgettable"), no comparisons with other drivers, no showing off: the travellers' words do that.
+6. **His English is only mentioned in the FAQ** ("My English is very basic..."), never in the hero or the car block.
+7. **No prices or amounts anywhere.** The quote, the deposit and the payment method are sent on WhatsApp, trip by trip.
+8. **Nothing that needs maintenance:** no embedded Instagram or Google feeds (link to them instead), no counters, no "years of experience", no dates that go out of date, no car model.
+9. **Nothing that looks generated or like a template:** no stock photos, no AI images, no icon sets, no emoji. Real photos only. The only icons are the WhatsApp, Instagram and Google logos on the links to those services.
+
+## Structure
+
+One page, in this order (section ids in brackets): header with ES/EN switch and WhatsApp button · hero (`#inicio`) · about me (`#darshi`) · travellers' experiences, dark band (`#opiniones`) · how we'll travel (`#viajar`), with the car (`#coche`) · quote and booking (`#presupuesto`) · real routes (`#viaje-real`) · FAQ (`#faq`) · contact, dark band (`#contacto`).
+
+## How the two languages work
+
+- Every visible text exists twice: `<span class="t-es">…</span><span class="t-en">…</span>` (the class can also sit on a `p`, `ul` or `ol`). Spanish is the default; the EN button adds `class="en"` to `body`. Both versions must say the same thing.
+- Images carry `data-alt-es` and `data-alt-en`; `alt` holds the Spanish one.
+- WhatsApp buttons are links with class `wa`. The script at the bottom fills in the prefilled message in the visitor's language. The number lives in the script (`num`), in the contact block and in the structured data in `<head>`: change all three if it ever changes.
+
+## Search engines
+
+- The `h1` holds "Darshi · Conductor privado en Sri Lanka" before the motto: keep those words in it.
+- The `<script type="application/ld+json">` in `<head>` tells Google what the business is. Keep it true; never add ratings or reviews to it (Google doesn't allow a business to mark up its own reviews).
+- `robots.txt` and `sitemap.xml` are at the root. The site is one page, so the sitemap never needs changes. The prefilled message is also how Darshi knows a person came from the website, so keep it.
+
+## Pending items and review mode
+
+Things that are not confirmed yet stay in the code but are **never shown to the public**:
+
+- `.tag`: a yellow note about something to confirm.
+- `.prov`: a note on a provisional photo, saying what the ideal photo is.
+- `.slot`: an empty box where a photo will go.
+- `.pend`: a whole element (an FAQ answer, a route card, a car detail) that only appears once it's confirmed.
+
+The script in `<head>` turns on **review mode** (class `revisar` on `html`), which shows all of the above in yellow. It's off on amigosparadisetours.com and github.io, and on everywhere else. `?revisar` forces it on, `?publico` forces it off. To list what's pending, search the file for `class="tag`, `prov`, `slot` and `pend`.
+
+When something is confirmed: write the real content in both languages, then remove its `.tag` or `.prov` and the `pend` class. Never remove `pend` without the confirmed content.
+
+## Common tasks
+
+**Replace a photo.** Darshi uploads the photo to `img/` himself and tells you its name. Point the `src` to it, update `data-alt-es`, `data-alt-en` and `alt`, and remove the `.prov` caption if it's the final photo. Photos should be about 1,600 px on the long side at most and under about 400 KB; if one is much bigger, resize it if you can, or tell him. The hero photo is also the image WhatsApp shows when the link is shared (`og:image`, an absolute URL): if its file name or size changes, update `og:image`, `og:image:width` and `og:image:height`. Don't delete old photos unless he asks.
+
+**Add a review.** Copy an existing `figure.q` in `#opiniones`. Literal text in its original language plus the translation, the original behind "Ver original" / "Original", and a footer with name · city, country and, only if they said it, the type of trip. Only 4 reviews are visible at first; the rest go inside `details.more-q` ("Ver más opiniones"): update the number in its summary in both languages. If there is a photo of those travellers with Darshi (only with their permission), put it first in the figure: `<figure class="q-ph"><img src="img/resena-name.jpg" alt="…"></figure>`, replacing the pending photo box.
+
+**Add a route.** Copy the commented route-card template above `.rcards` in `#viaje-real`, fill it in both languages and put it inside `.rcards` (you can replace a pending card). **Never draw new routes on the map:** the map only shows Claudia and Gerard's route as an example, so that adding a route never needs map work.
+
+**Answer a pending FAQ.** Ask Darshi for his answer, write it in his words in both languages, then remove the tag and the `pend` class from that `details`.
+
+**Add the video.** Follow the comment above `.video` in `#opiniones`: a vertical MP4 (H.264, ideally under 15 MB) and a JPG poster in `img/`, then remove `pend`.
+
+**Add the Google reviews link.** In the `.more` block of `#opiniones`, add a link "Ver todas mis reseñas en Google" / "See all my Google reviews" to his Google Business profile, and remove the tag next to it.
+
+## Technical rules
+
+- Keep it one static `index.html`. No frameworks, build tools, external scripts, trackers, analytics or cookies. Fonts are local in `fonts/` (SIL Open Font License, see `fonts/LICENSE.txt`). The only browser storage is the remembered language.
+- Colours are CSS variables in `:root`, with a dark-mode version. Titles use Libre Caslon Display, quotes Libre Caslon Text italic, body text Figtree.
+- Most visitors use a phone: check every change at 375 px wide, in both languages.
+- The map is "Sri Lanka relief location map" by Uwe Dedering (Wikimedia Commons, CC BY-SA 3.0). Its credit under the map must stay.
+- The icons (`icon-32.png`, `icon-180.png`) are the "D" from his logo. His full logo is `img/logo-amigos.png`.
+- Don't remove `.nojekyll` or `CNAME`: GitHub Pages needs them.
