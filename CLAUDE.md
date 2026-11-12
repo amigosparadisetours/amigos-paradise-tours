@@ -36,13 +36,23 @@ One page, in this order (section ids in brackets): header with ES/EN switch and 
 
 - Every visible text exists twice: `<span class="t-es">…</span><span class="t-en">…</span>` (the class can also sit on a `p`, `ul` or `ol`). Spanish is the default; the EN button adds `class="en"` to `body`. Both versions must say the same thing.
 - Images carry `data-alt-es` and `data-alt-en`; `alt` holds the Spanish one.
-- WhatsApp buttons are links with class `wa`. The script at the bottom fills in the prefilled message in the visitor's language. The number lives in the script (`num`), in the contact block and in the structured data in `<head>`: change all three if it ever changes.
+- WhatsApp buttons are links with class `wa`. The script at the bottom fills in the prefilled message in the visitor's language. The number lives in the script (`num`), in the contact block and in the structured data in `<head>`: change all three if it ever changes. The prefilled message is also how Darshi knows a person came from the website, so keep it.
+
+## Content Darshi edits from the panel
+
+Reviews, photos with travellers and route cards are **not written in `index.html`**. They live in three data files that Darshi edits himself, for free, from the Pages CMS panel (app.pagescms.org, configured in `.pages.yml`):
+
+- `data/reviews.json`: each review has `name`, `from_es`/`from_en`, `trip_es`/`trip_en`, `original_language`, `original` (literal text), `spanish`/`english` (translations), `photo` and `featured` (shown among the first ones; the first featured review is shown bigger).
+- `data/travellers.json`: `photo` and `description` (English).
+- `data/routes.json`: `who`, `days`, `type_es`/`type_en`, `stops`. Text only: never drawn on the map.
+
+The script at the bottom of `index.html` reads these files and builds the markup (with the same classes as the rest of the page). To change any of this content, edit the JSON files, not the HTML. Keep the field names: the panel depends on them. If you add a field, add it to `.pages.yml` too.
 
 ## Search engines
 
 - The `h1` holds "Darshi · Conductor privado en Sri Lanka" before the motto: keep those words in it.
 - The `<script type="application/ld+json">` in `<head>` tells Google what the business is. Keep it true; never add ratings or reviews to it (Google doesn't allow a business to mark up its own reviews).
-- `robots.txt` and `sitemap.xml` are at the root. The site is one page, so the sitemap never needs changes. The prefilled message is also how Darshi knows a person came from the website, so keep it.
+- `robots.txt` and `sitemap.xml` are at the root. The site is one page, so the sitemap never needs changes.
 
 ## Pending items and review mode
 
@@ -61,9 +71,7 @@ When something is confirmed: write the real content in both languages, then remo
 
 **Replace a photo.** Darshi uploads the photo to `img/` himself and tells you its name. Point the `src` to it, update `data-alt-es`, `data-alt-en` and `alt`, and remove the `.prov` caption if it's the final photo. Photos should be about 1,600 px on the long side at most and under about 400 KB; if one is much bigger, resize it if you can, or tell him. The hero photo is also the image WhatsApp shows when the link is shared (`og:image`, an absolute URL): if its file name or size changes, update `og:image`, `og:image:width` and `og:image:height`. Don't delete old photos unless he asks.
 
-**Add a review.** Copy an existing `figure.q` in `#opiniones`. Literal text in its original language plus the translation, the original behind "Ver original" / "Original", and a footer with name · city, country and, only if they said it, the type of trip. Only 4 reviews are visible at first; the rest go inside `details.more-q` ("Ver más opiniones"): update the number in its summary in both languages. If there is a photo of those travellers with Darshi (only with their permission), put it first in the figure: `<figure class="q-ph"><img src="img/resena-name.jpg" alt="…"></figure>`, replacing the pending photo box.
-
-**Add a route.** Copy the commented route-card template above `.rcards` in `#viaje-real`, fill it in both languages and put it inside `.rcards` (you can replace a pending card). **Never draw new routes on the map:** the map only shows Claudia and Gerard's route as an example, so that adding a route never needs map work.
+**Add a review, a photo with travellers or a route.** Darshi can do it himself from the panel. If he asks you, add an entry to the matching file in `data/`. Reviews: literal text in `original`, the translations in `spanish`/`english`, the type of trip only if the traveller said it, and a photo only with their permission. Only `featured` reviews are visible at first (keep about 4); the rest appear behind "Ver más opiniones". **Never draw new routes on the map:** the map only shows Claudia and Gerard's route as an example.
 
 **Answer a pending FAQ.** Ask Darshi for his answer, write it in his words in both languages, then remove the tag and the `pend` class from that `details`.
 
@@ -73,7 +81,7 @@ When something is confirmed: write the real content in both languages, then remo
 
 ## Technical rules
 
-- Keep it one static `index.html`. No frameworks, build tools, external scripts, trackers, analytics or cookies. Fonts are local in `fonts/` (SIL Open Font License, see `fonts/LICENSE.txt`). The only browser storage is the remembered language.
+- Keep it one static `index.html` plus the `data/` files. No frameworks, build tools, external scripts, trackers, analytics or cookies. Fonts are local in `fonts/` (SIL Open Font License, see `fonts/LICENSE.txt`). The only browser storage is the remembered language.
 - Colours are CSS variables in `:root`, with a dark-mode version. Titles use Libre Caslon Display, quotes Libre Caslon Text italic, body text Figtree.
 - Most visitors use a phone: check every change at 375 px wide, in both languages.
 - The map is "Sri Lanka relief location map" by Uwe Dedering (Wikimedia Commons, CC BY-SA 3.0). Its credit under the map must stay.

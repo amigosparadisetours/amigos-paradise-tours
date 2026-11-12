@@ -8,17 +8,29 @@ You don't need to do anything to keep it working. Nothing on it expires: there a
 
 The only cost is the domain name, once a year. Keep automatic renewal on, so you never lose the name.
 
-## When you want to change something
+## Reviews, photos with travellers and routes: your free panel
 
-You need the **Claude app** on your phone. The **Code** tab needs a paid plan (Pro). You can pay for one month when you want changes and cancel it afterwards: the website keeps working without it.
+You can change these yourself, for free, from your phone:
+
+1. Open **app.pagescms.org** and tap **Sign in with GitHub**.
+2. Choose **amigos-paradise-tours**.
+3. Open **Reviews**, **Photos with travellers** or **Routes**.
+4. Add or edit an entry and tap **Save**. The website updates in about a minute.
+
+Tips:
+
+- **Reviews:** copy the review exactly as the traveller wrote it, and add the translation (you can use the free Claude app or your phone's translator). Only add a photo if they agree.
+- **Photos:** big phone photos make the website slow. Before uploading, send the photo to yourself on WhatsApp and save that copy: it's smaller and perfect for the website.
+
+## Other changes
+
+For anything else (texts, other photos, new sections), you need the **Claude app** on your phone. The **Code** tab needs a paid plan (Pro). You can pay for one month when you want changes and cancel it afterwards: the website keeps working without it.
 
 1. Open the Claude app and tap **Code**.
 2. Choose the repository **amigos-paradise-tours**.
 3. Write what you want, in simple English. For example:
-   - *"Answer the FAQ about tips: …"*
-   - *"Add this review from Laura, Madrid, couple, 10 days: …"*
-   - *"Add a route: family with two kids, 11 days. Sigiriya, Kandy, Ella, Yala, Mirissa."*
-   - *"The car has 4 passenger seats and space for 3 big suitcases."*
+   - *"Change the answer about tips: …"*
+   - *"The car can now take 6 passengers."*
    - *"Use img/car-boot.jpg as the photo of the car boot."*
 4. Claude explains what it will change, changes it in Spanish and English, and opens a **pull request**.
 5. Open the pull request (in the GitHub app or on github.com) and tap **Merge**. The website updates in about a minute.

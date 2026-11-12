@@ -204,7 +204,7 @@ html:not(.revisar) .voice-g:has(> .video.pend){grid-template-columns:minmax(0,1f
 .more-q > summary::after{content:"+";font-family:var(--f-display);font-size:1.3rem;line-height:1;color:var(--band-gold)}
 .more-q[open] > summary::after{content:"\2212"}
 .more-q[open] > summary{margin-bottom:16px}
-.more-q-g{display:grid;gap:16px}
+.more-q-g,.reviews-list{display:grid;gap:16px}
 .rt-one{display:none}
 html:not(.revisar) #viaje-real:not(:has(.rcard:not(.pend))) .rt-many{display:none}
 html:not(.revisar) #viaje-real:not(:has(.rcard:not(.pend))) .rt-one{display:inline}
@@ -459,98 +459,13 @@ html.movil .crew-g{grid-template-columns:repeat(2,minmax(0,1fr))}
         <p style="font-size:.88rem;color:var(--on-band-muted)">Claudia &amp; Gerard · Barcelona · <span class="t-es">noviembre de 2026</span><span class="t-en">November 2026</span></p>
       </div>
       <div class="reviews">
-        <figure class="q big">
-          <div class="q-ph slot pend"><span class="t-es">Foto de Iñaki y su grupo con Darshi</span><span class="t-en">Photo of Iñaki and his group with Darshi</span></div>
-          <p class="t-es">“Fuimos cuatro amigos a recorrer Sri Lanka y acabamos siendo cinco. Desde el primer día fue uno más del grupo. Nos hemos reído muchísimo con él, hemos compartido mil momentos… Nos llevamos un viajazo, un montón de anécdotas y, lo mejor de todo, un amigo en Sri Lanka.”</p>
-          <p class="t-en">“Four of us friends travelled around Sri Lanka and we ended up being five. From the first day he was one more of the group. We laughed so much with him and shared a thousand moments… We came home with an amazing trip, lots of stories and, best of all, a friend in Sri Lanka.”</p>
-          <footer><span><b>Iñaki</b> · <span class="tag"><span class="t-es">Ciudad,</span><span class="t-en">City,</span></span> <span class="t-es">España</span><span class="t-en">Spain</span> · <span class="t-es">grupo de 4 amigos</span><span class="t-en">group of 4 friends</span></span><span class="t-en">Translated from Spanish</span></footer>
-        </figure>
-        <figure class="q">
-          <figure class="q-ph"><img src="img/resena-pierrus.jpg" data-alt-es="Pierrus y Darshi junto a un lago" data-alt-en="Pierrus and Darshi by a lake" alt="Pierrus y Darshi junto a un lago" loading="lazy"></figure>
-          <p class="t-es">“Incluso me enseñó algo de cingalés y cantamos en el coche, ¡además es un rapero con mucho talento! Como viajera sola, la seguridad era una gran preocupación para mí, pero ¡le recomiendo al 100 % a cualquiera!”</p>
-          <p class="t-en">“He even taught me some Singalese and we sang in the car, he is super talented rapper too! As a solo female traveller, safety was a big concern for me, but I can recommend him 100% to anyone!”</p>
-          <footer><span><b>Pierrus</b> · <span class="t-es">Mauricio</span><span class="t-en">Mauritius</span> · <span class="t-es">viajera sola</span><span class="t-en">solo traveller</span></span><span class="t-es">Traducida del inglés</span></footer>
-          <details class="t-es"><summary>Ver original</summary><p>“He even taught me some Singalese and we sang in the car, he is super talented rapper too! As a solo female traveller, safety was a big concern for me, but I can recommend him 100% to anyone!”</p></details>
-        </figure>
-        <figure class="q">
-          <figure class="q-ph"><img src="img/resena-jessica.jpg" data-alt-es="Jessica y sus amigos con Darshi junto al mar, entre palmeras" data-alt-en="Jessica and her friends with Darshi by the sea, among palm trees" alt="Jessica y sus amigos con Darshi junto al mar, entre palmeras" loading="lazy"></figure>
-          <p class="t-es">“Nos conocimos por casualidad y lo que empezó como un día de coche se convirtió en una gran amistad. Pasamos la mitad de nuestro viaje por Sri Lanka con él, y no solo porque lo necesitáramos, sino porque lo estábamos disfrutando muchísimo.”</p>
-          <p class="t-en">“We met by coincidence and what it started as a day drive it became a great friendship. We spent half of our journey in Sri Lanka with him and not only because we needed but because we were enjoying so much.”</p>
-          <footer><span><b>Jessica</b> · <span class="t-es">España</span><span class="t-en">Spain</span></span><span class="t-es">Traducida del inglés</span></footer>
-          <details class="t-es"><summary>Ver original</summary><p>“We met by coincidence and what it started as a day drive it became a great friendship. We spent half of our journey in Sri Lanka with him and not only because we needed but because we were enjoying so much.”</p></details>
-        </figure>
-        <figure class="q">
-          <div class="q-ph slot pend"><span class="t-es">Foto de Ricardo con Darshi</span><span class="t-en">Photo of Ricardo with Darshi</span></div>
-          <p class="t-es">“Conduce super bien, muy cuidadoso con todo y siempre ayudándonos con el idioma y cuidándonos. Habla inglés perfecto y se le entiende super bien. Fue maravilloso, volvería a contratarle, lo recomiendo 100%.”</p>
-          <p class="t-en">“He drives really well, he's very careful with everything and he was always helping us with the language and looking after us. He speaks perfect English and he's really easy to understand. It was wonderful, I would hire him again, I recommend him 100%.”</p>
-          <footer><span><b>Ricardo</b> · <span class="tag"><span class="t-es">Ciudad,</span><span class="t-en">City,</span></span> <span class="t-es">España</span><span class="t-en">Spain</span></span><span class="t-en">Translated from Spanish</span></footer>
-          <details class="t-en"><summary>Original</summary><p>“Conduce super bien, muy cuidadoso con todo y siempre ayudándonos con el idioma y cuidándonos. Habla inglés perfecto y se le entiende super bien. Fue maravilloso, volvería a contratarle, lo recomiendo 100%.”</p></details>
-        </figure>
-        <details class="more-q">
-          <summary><span class="t-es">Ver más opiniones (7)</span><span class="t-en">Read more reviews (7)</span></summary>
-          <div class="more-q-g">
-            <figure class="q">
-              <div class="q-ph slot pend"><span class="t-es">Foto de Amaya con Darshi</span><span class="t-en">Photo of Amaya with Darshi</span></div>
-              <p class="t-es">“Estuvimos 12 días con Darshik… muy atento en todo, muy puntual, nos ayudó en todo momento y desde el primer día el trato y las recomendaciones de sitios nuevos menos turísticos, fue de amigo.”</p>
-              <p class="t-en">“We spent 12 days with Darshik… very attentive in everything, very punctual, he helped us at all times, and from the first day the way he treated us and his recommendations of new, less touristy places were those of a friend.”</p>
-              <footer><span><b>Amaya</b> · <span class="tag"><span class="t-es">Ciudad,</span><span class="t-en">City,</span></span> <span class="t-es">España</span><span class="t-en">Spain</span> · 12 <span class="t-es">días</span><span class="t-en">days</span></span><span class="t-en">Translated from Spanish</span></footer>
-              <details class="t-en"><summary>Original</summary><p>“Estuvimos 12 días con Darshik… muy atento en todo, muy puntual, nos ayudó en todo momento y desde el primer día el trato y las recomendaciones de sitios nuevos menos turísticos, fue de amigo.”</p></details>
-            </figure>
-            <figure class="q">
-              <div class="q-ph slot pend"><span class="t-es">Foto de Matt con Darshi</span><span class="t-en">Photo of Matt with Darshi</span></div>
-              <p class="t-es">“¡Darshi fue el mejor conductor que tuvimos en Sri Lanka! Sabe mucho, le encanta charlar y se adaptó a todas nuestras paradas. ¡Se lo recomendaría a cualquiera!”</p>
-              <p class="t-en">“Darshi was the best driver we had in Sri Lanka! Knowledgeable, chatty and so accommodating to our stops. I’d recommend him to anyone!”</p>
-              <footer><span><b>Matt</b> · <span class="t-es">Reino Unido</span><span class="t-en">United Kingdom</span></span><span class="t-es">Traducida del inglés</span></footer>
-              <details class="t-es"><summary>Ver original</summary><p>“Darshi was the best driver we had in Sri Lanka! Knowledgeable, chatty and so accommodating to our stops. I’d recommend him to anyone!”</p></details>
-            </figure>
-            <figure class="q">
-              <div class="q-ph slot pend"><span class="t-es">Foto de Thorben y Anna con Darshi</span><span class="t-en">Photo of Thorben and Anna with Darshi</span></div>
-              <p class="t-es">“Darshi fue un conductor muy simpático y totalmente de confianza. Tuvimos muchísimas conversaciones bonitas en nuestras rutas y nos hicimos buenos amigos.”</p>
-              <p class="t-en">“Darshi was a very friendly and absolute reliable driver. We had so many nice conversations on our tours and became good friends!”</p>
-              <footer><span><b>Thorben &amp; Anna</b> · <span class="t-es">Alemania</span><span class="t-en">Germany</span></span><span class="t-es">Traducida del inglés</span></footer>
-              <details class="t-es"><summary>Ver original</summary><p>“Darshi was a very friendly and absolute reliable driver. We had so many nice conversations on our tours and became good friends!”</p></details>
-            </figure>
-            <figure class="q">
-              <div class="q-ph slot pend"><span class="t-es">Foto de Lluís con Darshi</span><span class="t-en">Photo of Lluís with Darshi</span></div>
-              <p class="t-es">“Darshi fue el mejor guía que podríamos haber tenido en Sri Lanka. Hace un trabajo increíble y te hace sentir como en casa. Recomendamos totalmente esta experiencia, ¡merece muchísimo la pena!”</p>
-              <p class="t-en">“Darshi was the best guide we could have had in Sri Lanka. He does an amazing job and he makes you feel at home. We totally recommend this experience, it is totally worth it!”</p>
-              <footer><span><b>Lluís</b> · <span class="t-es">España</span><span class="t-en">Spain</span></span><span class="t-es">Traducida del inglés</span></footer>
-              <details class="t-es"><summary>Ver original</summary><p>“Darshi was the best guide we could have had in Sri Lanka. He does an amazing job and he makes you feel at home. We totally recommend this experience, it is totally worth it!”</p></details>
-            </figure>
-            <figure class="q">
-              <div class="q-ph slot pend"><span class="t-es">Foto de Kyra con Darshi</span><span class="t-en">Photo of Kyra with Darshi</span></div>
-              <p class="t-es">“Darshi es increíblemente amable, divertido, te apoya en todo y es el conductor y guía perfecto. Mucha gente en Sri Lanka es amable, pero él es único. ¡Muy recomendable, y espero volver a verte pronto!”</p>
-              <p class="t-en">“Darshi is incredible kind, funny, supportive and the perfect driver/guide. Many natives in Sri Lanka are friendly people but he is one of a kind. Highly recommended and hope to see you again soon!”</p>
-              <footer><span><b>Kyra</b> · <span class="t-es">Alemania</span><span class="t-en">Germany</span></span><span class="t-es">Traducida del inglés</span></footer>
-              <details class="t-es"><summary>Ver original</summary><p>“Darshi is incredible kind, funny, supportive and the perfect driver/guide. Many natives in Sri Lanka are friendly people but he is one of a kind. Highly recommended and hope to see you again soon!”</p></details>
-            </figure>
-            <figure class="q">
-              <div class="q-ph slot pend"><span class="t-es">Foto de Melody con Darshi</span><span class="t-en">Photo of Melody with Darshi</span></div>
-              <p class="t-es">“Darshi fue mi conductor en un viaje de 8 días por Sri Lanka y ¡lo pasé genial con él! Conoce muy bien el país y es una persona amable y hospitalaria. ¡Muy recomendable!”</p>
-              <p class="t-en">“Had Darshi as my driver for an 8 day trip to Sri Lanka and had the best time with him! He knows the country well and is a kind and hospitable person. Highly recommend!”</p>
-              <footer><span><b>Melody</b> · <span class="t-es">Estados Unidos</span><span class="t-en">United States</span> · 8 <span class="t-es">días</span><span class="t-en">days</span></span><span class="t-es">Traducida del inglés</span></footer>
-              <details class="t-es"><summary>Ver original</summary><p>“Had Darshi as my driver for an 8 day trip to Sri Lanka and had the best time with him! He knows the country well and is a kind and hospitable person. Highly recommend!”</p></details>
-            </figure>
-            <figure class="q">
-              <div class="q-ph slot pend"><span class="t-es">Foto de Charline con Darshi</span><span class="t-en">Photo of Charline with Darshi</span></div>
-              <p class="t-es">“Recomiendo de verdad viajar con Darshi: ¡hará que cada excursión sea excepcional! Además, es una persona muy simpática y cálida, y eso lo hace todo mágico. ¡Volvería con él al 1000 %!”</p>
-              <p class="t-en">“I highly recommend going with Darshi: he will make every excursion exceptional! He's also a very friendly and warm person, which makes it all magical. I'd go with him again 1000%!”</p>
-              <footer><span><b>Charline</b> · <span class="t-es">Bélgica</span><span class="t-en">Belgium</span></span><span><span class="t-es">Traducida del francés</span><span class="t-en">Translated from French</span></span></footer>
-              <details><summary><span class="t-es">Ver original</span><span class="t-en">Original</span></summary><p lang="fr">“Je conseille vivement de passer par Darshi, il rendra chaque excursion exceptionnelle ! De plus, c’est quelqu’un de très sympathique et chaleureux ! Ce qui rendra le tout magique… je repasserai par lui à 1000%”</p></details>
-            </figure>
-          </div>
-        </details>
+        <!-- Reviews come from data/reviews.json (edited from the Pages CMS panel). -->
+        <div class="reviews-list" id="reviews-list"></div>
         <!-- Darshi with other travellers (photos from his previous website). -->
         <div class="crew">
           <p class="crew-k"><span class="t-es">Algunos de mis viajeros</span><span class="t-en">Some of my travellers</span></p>
-          <div class="crew-g">
-            <img src="img/viajeros-1.jpg" data-alt-es="Darshi con cuatro viajeras" data-alt-en="Darshi with four travellers" alt="Darshi con cuatro viajeras" loading="lazy">
-            <img src="img/viajeros-2.jpg" data-alt-es="Darshi con un grupo de viajeros junto a un lago" data-alt-en="Darshi with a group of travellers by a lake" alt="Darshi con un grupo de viajeros junto a un lago" loading="lazy">
-            <img src="img/viajeros-3.jpg" data-alt-es="Darshi con un grupo de viajeros" data-alt-en="Darshi with a group of travellers" alt="Darshi con un grupo de viajeros" loading="lazy">
-            <img src="img/viajeros-4.jpg" data-alt-es="Darshi con un grupo de viajeros en la montaña" data-alt-en="Darshi with a group of travellers in the hills" alt="Darshi con un grupo de viajeros en la montaña" loading="lazy">
-            <img src="img/viajeros-5.jpg" data-alt-es="Darshi con un grupo de viajeros en la selva" data-alt-en="Darshi with a group of travellers in the jungle" alt="Darshi con un grupo de viajeros en la selva" loading="lazy">
-            <img src="img/viajeros-6.jpg" data-alt-es="Darshi con dos viajeros" data-alt-en="Darshi with two travellers" alt="Darshi con dos viajeros" loading="lazy">
-          </div>
+          <!-- Photos come from data/travellers.json (edited from the Pages CMS panel). -->
+          <div class="crew-g" id="travellers-list"></div>
         </div>
         <!-- Links, not embeds: Google and Instagram keep themselves up to date. -->
         <div class="more">
@@ -754,24 +669,8 @@ html.movil .crew-g{grid-template-columns:repeat(2,minmax(0,1fr))}
       </div>
     </div>
 
-    <!-- More routes. To add one, copy this block, fill it in both languages and remove class "pend":
-    <article class="rcard">
-      <p class="rcard-k"><span class="t-es">12 días · pareja</span><span class="t-en">12 days · couple</span></p>
-      <h3>Amaya</h3>
-      <p class="rcard-s">Sigiriya · Kandy · Ella · Yala · Mirissa</p>
-    </article> -->
-    <div class="rcards">
-      <article class="rcard pend">
-        <p class="rcard-k"><span class="tag"><span class="t-es">Días · tipo de viaje</span><span class="t-en">Days · type of trip</span></span></p>
-        <h3><span class="tag"><span class="t-es">Quién viajaba (p. ej. Amaya)</span><span class="t-en">Who travelled (e.g. Amaya)</span></span></h3>
-        <p class="rcard-s"><span class="tag"><span class="t-es">Paradas, en orden</span><span class="t-en">Stops, in order</span></span></p>
-      </article>
-      <article class="rcard pend">
-        <p class="rcard-k"><span class="tag"><span class="t-es">Días · tipo de viaje</span><span class="t-en">Days · type of trip</span></span></p>
-        <h3><span class="tag"><span class="t-es">Quién viajaba</span><span class="t-en">Who travelled</span></span></h3>
-        <p class="rcard-s"><span class="tag"><span class="t-es">Paradas, en orden</span><span class="t-en">Stops, in order</span></span></p>
-      </article>
-    </div>
+    <!-- More routes come from data/routes.json (edited from the Pages CMS panel). Text only: never drawn on the map. -->
+    <div class="rcards" id="routes-list"></div>
   </div>
 </section>
 
@@ -868,6 +767,61 @@ html.movil .crew-g{grid-template-columns:repeat(2,minmax(0,1fr))}
     document.documentElement.classList.add('movil');
     document.head.appendChild(ps);
   }
+  // Reviews, traveller photos and route cards live in data/*.json, which Darshi edits from the
+  // Pages CMS panel. They are rendered here with the same markup the rest of the page uses.
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function pair(es, en){ return '<span class="t-es">' + esc(es) + '</span><span class="t-en">' + esc(en) + '</span>'; }
+  var fromLang = {
+    es: ['español', 'Spanish'], en: ['inglés', 'English'], fr: ['francés', 'French'],
+    de: ['alemán', 'German'], it: ['italiano', 'Italian']
+  };
+  function review(r, big){
+    var o = r.original_language || 'es', names = fromLang[o] || ['otro idioma', 'another language'];
+    var es = o === 'es' ? r.original : (r.spanish || r.original);
+    var en = o === 'en' ? r.original : (r.english || r.original);
+    var photo = r.photo
+      ? '<figure class="q-ph"><img src="' + esc(r.photo) + '" data-alt-es="' + esc(r.name) + ' con Darshi" data-alt-en="' + esc(r.name) + ' with Darshi" alt="' + esc(r.name) + ' con Darshi" loading="lazy"></figure>'
+      : '<div class="q-ph slot pend">' + pair('Foto de ' + r.name + ' con Darshi', 'Photo of ' + r.name + ' with Darshi') + '</div>';
+    var who = '<b>' + esc(r.name) + '</b>' + (r.from_es || r.from_en ? ' · ' + pair(r.from_es, r.from_en) : '') +
+      (r.trip_es || r.trip_en ? ' · ' + pair(r.trip_es, r.trip_en) : '');
+    var note = (o !== 'es' ? '<span class="t-es">Traducida del ' + names[0] + '</span>' : '') +
+      (o !== 'en' ? '<span class="t-en">Translated from ' + names[1] + '</span>' : '');
+    var orig = (o !== 'es' ? '<details class="t-es"><summary>Ver original</summary><p>“' + esc(r.original) + '”</p></details>' : '') +
+      (o !== 'en' ? '<details class="t-en"><summary>Original</summary><p>“' + esc(r.original) + '”</p></details>' : '');
+    return '<figure class="q' + (big ? ' big' : '') + '">' + photo +
+      '<p class="t-es">“' + esc(es) + '”</p><p class="t-en">“' + esc(en) + '”</p>' +
+      '<footer><span>' + who + '</span><span>' + note + '</span></footer>' + orig + '</figure>';
+  }
+  function load(name){
+    return fetch('data/' + name + '.json', { cache: 'no-cache' }).then(function(r){ return r.ok ? r.json() : []; }).catch(function(){ return []; });
+  }
+  var rendered = Promise.all([load('reviews'), load('travellers'), load('routes')]).then(function(d){
+    var reviews = d[0], travellers = d[1], routes = d[2];
+    var top = reviews.filter(function(r){ return r.featured; }), rest = reviews.filter(function(r){ return !r.featured; });
+    var out = top.map(function(r, i){ return review(r, i === 0); }).join('');
+    if (rest.length) out += '<details class="more-q"><summary>' + pair('Ver más opiniones (' + rest.length + ')', 'Read more reviews (' + rest.length + ')') +
+      '</summary><div class="more-q-g">' + rest.map(function(r){ return review(r, false); }).join('') + '</div></details>';
+    document.getElementById('reviews-list').innerHTML = out;
+
+    var crew = document.getElementById('travellers-list');
+    crew.innerHTML = travellers.map(function(t){
+      var en = t.description || 'Darshi with travellers';
+      return '<img src="' + esc(t.photo) + '" data-alt-es="Darshi con viajeros" data-alt-en="' + esc(en) + '" alt="Darshi con viajeros" loading="lazy">';
+    }).join('');
+    crew.parentNode.hidden = !travellers.length;
+
+    document.getElementById('routes-list').innerHTML = routes.length
+      ? routes.map(function(r){
+          return '<article class="rcard"><p class="rcard-k">' + pair(r.days + ' días · ' + (r.type_es || ''), r.days + ' days · ' + (r.type_en || '')) +
+            '</p><h3>' + esc(r.who) + '</h3><p class="rcard-s">' + esc(r.stops) + '</p></article>';
+        }).join('')
+      : '<article class="rcard pend"><p class="rcard-k"><span class="tag">' + pair('Añade rutas desde el panel', 'Add routes from the panel') + '</span></p></article>';
+
+    setLang(document.body.classList.contains('en') ? 'en' : 'es');
+    if (/[?&]imprimir\b/.test(location.search)) prepPrint();
+  });
+  window.addEventListener('beforeprint', function(){ rendered.then(prepPrint); });
+
   document.getElementById('l-es').addEventListener('click', function(){ setLang('es'); });
   document.getElementById('l-en').addEventListener('click', function(){ setLang('en'); });
   var saved = 'es';
