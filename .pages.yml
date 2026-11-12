@@ -1,0 +1,105 @@
+# Pages CMS panel (app.pagescms.org): lets Darshi edit reviews, traveller photos and routes from his phone.
+# Each entry edits one file in data/. The website reads those files, so the design never changes.
+media:
+  input: img
+  output: img
+  categories: [image]
+  rename: safe
+
+content:
+  - name: reviews
+    label: Reviews
+    type: file
+    path: data/reviews.json
+    format: json
+    list: true
+    fields:
+      - name: name
+        label: Name
+        type: string
+        required: true
+      - name: from_es
+        label: Country or city, in Spanish (e.g. España)
+        type: string
+      - name: from_en
+        label: Country or city, in English (e.g. Spain)
+        type: string
+      - name: trip_es
+        label: Type of trip, in Spanish (optional, e.g. 12 días)
+        type: string
+      - name: trip_en
+        label: Type of trip, in English (optional, e.g. 12 days)
+        type: string
+      - name: original_language
+        label: Language the review was written in
+        type: select
+        required: true
+        options:
+          values:
+            - name: es
+              label: Spanish
+            - name: en
+              label: English
+            - name: fr
+              label: French
+            - name: de
+              label: German
+            - name: it
+              label: Italian
+      - name: original
+        label: Review, exactly as they wrote it
+        type: text
+        required: true
+      - name: spanish
+        label: Spanish translation (leave empty if the review is in Spanish)
+        type: text
+      - name: english
+        label: English translation (leave empty if the review is in English)
+        type: text
+      - name: photo
+        label: Photo of them with you (only with their permission)
+        type: image
+      - name: featured
+        label: Show among the first 4 reviews
+        type: boolean
+
+  - name: travellers
+    label: Photos with travellers
+    type: file
+    path: data/travellers.json
+    format: json
+    list: true
+    fields:
+      - name: photo
+        label: Photo
+        type: image
+        required: true
+      - name: description
+        label: Short description in English (e.g. Darshi with a family in Ella)
+        type: string
+
+  - name: routes
+    label: Routes
+    type: file
+    path: data/routes.json
+    format: json
+    list: true
+    fields:
+      - name: who
+        label: Who travelled (e.g. Amaya, or A family with two children)
+        type: string
+        required: true
+      - name: days
+        label: Number of days
+        type: string
+        required: true
+      - name: type_es
+        label: Type of trip, in Spanish (e.g. pareja, familia)
+        type: string
+      - name: type_en
+        label: Type of trip, in English (e.g. couple, family)
+        type: string
+      - name: stops
+        label: Stops in order (e.g. Sigiriya · Kandy · Ella · Yala · Mirissa)
+        type: string
+        required: true
